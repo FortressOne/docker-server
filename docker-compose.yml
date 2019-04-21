@@ -1,0 +1,23 @@
+version: "3"
+services:
+  pubserver:
+    image: fortressone/fortressonesv:0.0.1
+    deploy:
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "27500:27500/udp"
+  duelserver:
+    image: fortressone/fortressonesv:0.0.1
+    deploy:
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "27501:27500/udp"
+  pugserver:
+    image: fortressone/fortressonesv:0.0.1
+    deploy:
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "27502:27500/udp"
