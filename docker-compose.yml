@@ -1,16 +1,16 @@
 version: "3"
 services:
   map-repo:
-    image: map-repo/map-repo:0.0.2
+    image: fortressone/map-repo:latest
     volumes:
       - maps:/map-repo/fortress/maps
-        progs:/map-repo/fortress/progs
-        sound:/map-repo/fortress/sound
-        lits:/map-repo/fortress/lits
-        locs:/map-repo/fortress/locs
-        skins:/map-repo/fortress/skins
+      - progs:/map-repo/fortress/progs
+      - sound:/map-repo/fortress/sound
+      - lits:/map-repo/fortress/lits
+      - locs:/map-repo/fortress/locs
+      - skins:/map-repo/fortress/skins
   pubserver:
-    image: fortressone/fortressonesv:0.0.1
+    image: fortressone/fortressonesv:latest
     deploy:
       restart_policy:
         condition: on-failure
@@ -18,13 +18,13 @@ services:
       - "27500:27500/udp"
     volumes:
       - maps:/fortressonesv/fortress/maps
-        progs:/fortressonesv/fortress/progs
-        sound:/fortressonesv/fortress/sound
-        lits:/fortressonesv/fortress/lits
-        locs:/fortressonesv/fortress/locs
-        skins:/fortressonesv/fortress/skins
+      - progs:/fortressonesv/fortress/progs
+      - sound:/fortressonesv/fortress/sound
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - skins:/fortressonesv/fortress/skins
   duelserver:
-    image: fortressone/fortressonesv:0.0.1
+    image: fortressone/fortressonesv:latest
     deploy:
       restart_policy:
         condition: on-failure
@@ -32,13 +32,13 @@ services:
       - "27501:27500/udp"
     volumes:
       - maps:/fortressonesv/fortress/maps
-        progs:/fortressonesv/fortress/progs
-        sound:/fortressonesv/fortress/sound
-        lits:/fortressonesv/fortress/lits
-        locs:/fortressonesv/fortress/locs
-        skins:/fortressonesv/fortress/skins
+      - progs:/fortressonesv/fortress/progs
+      - sound:/fortressonesv/fortress/sound
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - skins:/fortressonesv/fortress/skins
   pugserver:
-    image: fortressone/fortressonesv:0.0.1
+    image: fortressone/fortressonesv:latest
     deploy:
       restart_policy:
         condition: on-failure
@@ -46,8 +46,15 @@ services:
       - "27502:27500/udp"
     volumes:
       - maps:/fortressonesv/fortress/maps
-        progs:/fortressonesv/fortress/progs
-        sound:/fortressonesv/fortress/sound
-        lits:/fortressonesv/fortress/lits
-        locs:/fortressonesv/fortress/locs
-        skins:/fortressonesv/fortress/skins
+      - progs:/fortressonesv/fortress/progs
+      - sound:/fortressonesv/fortress/sound
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - skins:/fortressonesv/fortress/skins
+volumes:
+  maps:
+  progs:
+  sound:
+  lits:
+  locs:
+  skins:

@@ -9,7 +9,6 @@ RUN wget https://github.com/FortressOne/map-repo/releases/latest/download/map-re
   && unzip map-repo.zip \
   && rm map-repo.zip
 COPY sync.sh /map-repo
-RUN ./sync.sh
 COPY crontab /etc/cron.d/
 RUN chmod 0644 /etc/cron.d/crontab \
   && crontab /etc/cron.d/crontab
