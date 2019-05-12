@@ -2,12 +2,12 @@ Set up:
 
 ```sh
 $ docker swarm init
-$ docker stack deploy -c docker-compose.yml fortressonesv
+$ docker stack deploy -c docker-compose.yml fortressone
 ```
 
 Pull down:
 
 ```sh
-$ docker stack rm fortressonesv
+$ docker stack rm fortressone
 $ docker swarm leave --force
 ```
