@@ -5,6 +5,14 @@ $ docker swarm init
 $ docker stack deploy -c docker-compose.yml fortressone
 ```
 
+
+Tail log:
+
+```sh
+$ docker-compose logs
+```
+
+
 Pull down:
 
 ```sh

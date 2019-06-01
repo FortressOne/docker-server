@@ -10,10 +10,9 @@ services:
       - locs:/map-repo/fortress/locs
       - skins:/map-repo/fortress/skins
   pubserver:
+    environment:
+      - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
     image: fortressone/fortressonesv:latest
-    deploy:
-      restart_policy:
-        condition: any
     ports:
       - "27500:27500/udp"
     volumes:
@@ -24,10 +23,9 @@ services:
       - locs:/fortressonesv/fortress/locs
       - skins:/fortressonesv/fortress/skins
   duelserver:
+    environment:
+      - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
     image: fortressone/fortressonesv:latest
-    deploy:
-      restart_policy:
-        condition: any
     ports:
       - "27501:27500/udp"
     volumes:
@@ -38,10 +36,9 @@ services:
       - locs:/fortressonesv/fortress/locs
       - skins:/fortressonesv/fortress/skins
   pugserver:
+    environment:
+      - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
     image: fortressone/fortressonesv:latest
-    deploy:
-      restart_policy:
-        condition: any
     ports:
       - "27502:27500/udp"
     volumes:
