@@ -22,8 +22,9 @@ docker stack rm fortressone && docker swarm leave --force
 
 ## To Do
 
+- [ ] sane default config
 - [ ] auto update qwprogs
 - [ ] integrate with discord server bot
 - [ ] qtv
 - [ ] autorecord and mvd file server
-- [ ] stats
+- [ ] stat
