@@ -45,6 +45,18 @@ services:
       - lits:/fortressonesv/fortress/lits
       - locs:/fortressonesv/fortress/locs
       - skins:/fortressonesv/fortress/skins
+  clanserver:
+    env_file: .env
+    image: fortressone/fortressonesv:latest
+    ports:
+      - "27503:27500/udp"
+    volumes:
+      - maps:/fortressonesv/fortress/maps
+      - progs:/fortressonesv/fortress/progs
+      - sound:/fortressonesv/fortress/sound
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - skins:/fortressonesv/fortress/skins
 volumes:
   maps:
   progs:
