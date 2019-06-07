@@ -1,5 +1,9 @@
 version: "3"
 services:
+  server-qwprogs:
+    image: fortressone/server-qwprogs:latest
+    volumes:
+      - fortress:/server-qwprogs/fortress
   map-repo:
     image: fortressone/map-repo:latest
     volumes:

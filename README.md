@@ -6,13 +6,12 @@ Set up:
 docker swarm init && docker stack deploy -c docker-compose.yml fortressone
 ```
 
-
-Tail log:
+Tail logs:
 
 ```sh
-docker-compose logs
+docker container ls
+docker logs -f <name>
 ```
-
 
 Pull down:
 
@@ -22,9 +21,10 @@ docker stack rm fortressone && docker swarm leave --force
 
 ## To Do
 
+- [x] auto update maps
+- [x] auto update qwprogs
 - [ ] sane default config
-- [ ] auto update qwprogs
 - [ ] integrate with discord server bot
 - [ ] qtv
 - [ ] autorecord and mvd file server
-- [ ] stat
+- [ ] stats
