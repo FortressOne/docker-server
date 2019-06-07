@@ -3,64 +3,34 @@ services:
   map-repo:
     image: fortressone/map-repo:latest
     volumes:
-      - maps:/map-repo/fortress/maps
-      - progs:/map-repo/fortress/progs
-      - sound:/map-repo/fortress/sound
-      - lits:/map-repo/fortress/lits
-      - locs:/map-repo/fortress/locs
-      - skins:/map-repo/fortress/skins
+      - fortress:/map-repo/fortress
   pubserver:
     env_file: .env
     image: fortressone/fortressonesv:latest
     ports:
       - "27500:27500/udp"
     volumes:
-      - maps:/fortressonesv/fortress/maps
-      - progs:/fortressonesv/fortress/progs
-      - sound:/fortressonesv/fortress/sound
-      - lits:/fortressonesv/fortress/lits
-      - locs:/fortressonesv/fortress/locs
-      - skins:/fortressonesv/fortress/skins
+      - fortress:/fortressonesv/fortress
   duelserver:
     env_file: .env
     image: fortressone/fortressonesv:latest
     ports:
       - "27501:27500/udp"
     volumes:
-      - maps:/fortressonesv/fortress/maps
-      - progs:/fortressonesv/fortress/progs
-      - sound:/fortressonesv/fortress/sound
-      - lits:/fortressonesv/fortress/lits
-      - locs:/fortressonesv/fortress/locs
-      - skins:/fortressonesv/fortress/skins
+      - fortress:/fortressonesv/fortress
   pugserver:
     env_file: .env
     image: fortressone/fortressonesv:latest
     ports:
       - "27502:27500/udp"
     volumes:
-      - maps:/fortressonesv/fortress/maps
-      - progs:/fortressonesv/fortress/progs
-      - sound:/fortressonesv/fortress/sound
-      - lits:/fortressonesv/fortress/lits
-      - locs:/fortressonesv/fortress/locs
-      - skins:/fortressonesv/fortress/skins
+      - fortress:/fortressonesv/fortress
   clanserver:
     env_file: .env
     image: fortressone/fortressonesv:latest
     ports:
       - "27503:27500/udp"
     volumes:
-      - maps:/fortressonesv/fortress/maps
-      - progs:/fortressonesv/fortress/progs
-      - sound:/fortressonesv/fortress/sound
-      - lits:/fortressonesv/fortress/lits
-      - locs:/fortressonesv/fortress/locs
-      - skins:/fortressonesv/fortress/skins
+      - fortress:/fortressonesv/fortress
 volumes:
-  maps:
-  progs:
-  sound:
-  lits:
-  locs:
-  skins:
+  fortress:
