@@ -9,32 +9,36 @@ services:
     volumes:
       - fortress:/map-repo/fortress
   pubserver:
-    env_file: .env
     image: fortressone/fortressonesv:latest
     ports:
       - "27500:27500/udp"
     volumes:
       - fortress:/fortressonesv/fortress
+    environment:
+      - FO_MODE=pub
   duelserver:
-    env_file: .env
     image: fortressone/fortressonesv:latest
     ports:
       - "27501:27500/udp"
     volumes:
       - fortress:/fortressonesv/fortress
+    environment:
+      - FO_MODE=duel
   pugserver:
-    env_file: .env
     image: fortressone/fortressonesv:latest
     ports:
       - "27502:27500/udp"
     volumes:
       - fortress:/fortressonesv/fortress
+    environment:
+      - FO_MODE=pug
   clanserver:
-    env_file: .env
     image: fortressone/fortressonesv:latest
     ports:
       - "27503:27500/udp"
     volumes:
       - fortress:/fortressonesv/fortress
+    environment:
+      - FO_MODE=clan
 volumes:
   fortress:
