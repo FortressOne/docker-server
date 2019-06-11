@@ -15,7 +15,7 @@ services:
     volumes:
       - fortress:/fortressonesv/fortress
     environment:
-      - FO_MODE=pub
+      - FO_MODE=pubmode
   duelserver:
     image: fortressone/fortressonesv:latest
     ports:
@@ -23,7 +23,7 @@ services:
     volumes:
       - fortress:/fortressonesv/fortress
     environment:
-      - FO_MODE=duel
+      - FO_MODE=duelmode
   pugserver:
     image: fortressone/fortressonesv:latest
     ports:
@@ -31,7 +31,7 @@ services:
     volumes:
       - fortress:/fortressonesv/fortress
     environment:
-      - FO_MODE=pug
+      - FO_MODE=pugmode
   clanserver:
     image: fortressone/fortressonesv:latest
     ports:
@@ -39,6 +39,6 @@ services:
     volumes:
       - fortress:/fortressonesv/fortress
     environment:
-      - FO_MODE=clan
+      - FO_MODE=clanmode
 volumes:
   fortress:
