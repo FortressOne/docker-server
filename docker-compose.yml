@@ -1,44 +1,66 @@
 version: "3"
 services:
-  server-qwprogs:
-    image: fortressone/server-qwprogs:latest
-    volumes:
-      - fortress:/server-qwprogs/fortress
-  map-repo:
-    image: fortressone/map-repo:latest
-    volumes:
-      - fortress:/map-repo/fortress
   pubserver:
     image: fortressone/fortressonesv:latest
     ports:
       - "27500:27500/udp"
     volumes:
-      - fortress:/fortressonesv/fortress
+      - fortress:/fortressonesv
     environment:
-      - FO_MODE=pubmode
+      - FO_MODE=pub
+      - FO_HOSTNAME="FortressOne Sydney Pub"
+      - FO_RCON_PASSWORD=revival
+      - FO_ADMINPWD=revival
   duelserver:
     image: fortressone/fortressonesv:latest
     ports:
       - "27501:27500/udp"
     volumes:
-      - fortress:/fortressonesv/fortress
+      - fortress:/fortressonesv
     environment:
-      - FO_MODE=duelmode
+      - FO_MODE=duel
+      - FO_HOSTNAME="FortressOne Sydney Duel"
+      - FO_RCON_PASSWORD=revival
+      - FO_ADMINPWD=revival
   pugserver:
     image: fortressone/fortressonesv:latest
     ports:
       - "27502:27500/udp"
     volumes:
-      - fortress:/fortressonesv/fortress
+      - fortress:/fortressonesv
     environment:
-      - FO_MODE=pugmode
-  clanserver:
+      - FO_MODE=pug
+      - FO_HOSTNAME="FortressOne Sydney Pug"
+      - FO_RCON_PASSWORD=revival
+      - FO_ADMINPWD=revival
+  quadserver:
     image: fortressone/fortressonesv:latest
     ports:
       - "27503:27500/udp"
     volumes:
-      - fortress:/fortressonesv/fortress
+      - fortress:/fortressonesv
     environment:
-      - FO_MODE=clanmode
+      - FO_MODE=quad
+      - FO_HOSTNAME="FortressOne Sydney Quad"
+      - FO_RCON_PASSWORD=revival
+      - FO_ADMINPWD=revival
+  server-qwprogs:
+    depends_on:
+      - pubserver
+      - duelserver
+      - pugserver
+      - quadserver
+    image: fortressone/server-qwprogs:latest
+    volumes:
+      - fortress:/fortressonesv
+  map-repo:
+    depends_on:
+      - pubserver
+      - duelserver
+      - pugserver
+      - quadserver
+    image: fortressone/map-repo:latest
+    volumes:
+      - fortress:/fortressonesv
 volumes:
   fortress:
