@@ -1,11 +1,21 @@
 version: "3"
 services:
+  demo-serve:
+    image: fortressone/demo-serve:latest
+    ports:
+      - "80:80"
+    volumes:
+      - pub-demos:/demo-serve/pub
+      - pug-demos:/demo-serve/pug
+      - quad-demos:/demo-serve/quad
+      - duel-demos:/demo-serve/duel
   pubserver:
     image: fortressone/fortressonesv:latest
     ports:
       - "27500:27500/udp"
     volumes:
       - fortress:/fortressonesv
+      - pub-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=pub
       - FO_HOSTNAME="FortressOne Sydney Pub"
@@ -17,6 +27,7 @@ services:
       - "27501:27500/udp"
     volumes:
       - fortress:/fortressonesv
+      - duel-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=duel
       - FO_HOSTNAME="FortressOne Sydney Duel"
@@ -28,6 +39,7 @@ services:
       - "27502:27500/udp"
     volumes:
       - fortress:/fortressonesv
+      - pug-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=pug
       - FO_HOSTNAME="FortressOne Sydney Pug"
@@ -39,6 +51,7 @@ services:
       - "27503:27500/udp"
     volumes:
       - fortress:/fortressonesv
+      - quad-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=quad
       - FO_HOSTNAME="FortressOne Sydney Quad"
@@ -64,3 +77,7 @@ services:
       - fortress:/fortressonesv
 volumes:
   fortress:
+  pub-demos:
+  duel-demos:
+  pug-demos:
+  quad-demos:
