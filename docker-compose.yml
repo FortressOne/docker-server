@@ -10,6 +10,8 @@ services:
       - quad-demos:/demo-serve/quad
       - duel-demos:/demo-serve/duel
   pubserver:
+    depends_on:
+      - demo-serve
     image: fortressone/fortressonesv:latest
     ports:
       - "27500:27500/udp"
@@ -22,6 +24,8 @@ services:
       - FO_RCON_PASSWORD=revival
       - FO_ADMINPWD=revival
   duelserver:
+    depends_on:
+      - demo-serve
     image: fortressone/fortressonesv:latest
     ports:
       - "27501:27500/udp"
@@ -34,6 +38,8 @@ services:
       - FO_RCON_PASSWORD=revival
       - FO_ADMINPWD=revival
   pugserver:
+    depends_on:
+      - demo-serve
     image: fortressone/fortressonesv:latest
     ports:
       - "27502:27500/udp"
@@ -46,6 +52,8 @@ services:
       - FO_RCON_PASSWORD=revival
       - FO_ADMINPWD=revival
   quadserver:
+    depends_on:
+      - demo-serve
     image: fortressone/fortressonesv:latest
     ports:
       - "27503:27500/udp"
