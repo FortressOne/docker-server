@@ -9,6 +9,7 @@ services:
       - pug-demos:/demo-serve/pug
       - quad-demos:/demo-serve/quad
       - duel-demos:/demo-serve/duel
+    restart: always
   pubserver:
     depends_on:
       - demo-serve
@@ -23,6 +24,7 @@ services:
       - FO_HOSTNAME="FortressOne Sydney Pub"
       - FO_RCON_PASSWORD=revival
       - FO_ADMINPWD=revival
+    restart: always
   duelserver:
     depends_on:
       - demo-serve
@@ -37,6 +39,7 @@ services:
       - FO_HOSTNAME="FortressOne Sydney Duel"
       - FO_RCON_PASSWORD=revival
       - FO_ADMINPWD=revival
+    restart: always
   pugserver:
     depends_on:
       - demo-serve
@@ -51,6 +54,7 @@ services:
       - FO_HOSTNAME="FortressOne Sydney Pug"
       - FO_RCON_PASSWORD=revival
       - FO_ADMINPWD=revival
+    restart: always
   quadserver:
     depends_on:
       - demo-serve
@@ -65,6 +69,7 @@ services:
       - FO_HOSTNAME="FortressOne Sydney Quad"
       - FO_RCON_PASSWORD=revival
       - FO_ADMINPWD=revival
+    restart: always
   updater:
     depends_on:
       - pubserver
@@ -74,6 +79,7 @@ services:
     image: fortressone/updater:latest
     volumes:
       - fortress:/fortressonesv
+    restart: always
 volumes:
   fortress:
   pub-demos:

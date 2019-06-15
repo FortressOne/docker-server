@@ -6,6 +6,12 @@ Set up:
 docker swarm init && docker stack deploy -c docker-compose.yml fortressone
 ```
 
+Or
+
+```sh
+docker-compose up
+```
+
 Tail logs:
 
 ```sh
@@ -17,6 +23,12 @@ Pull down:
 
 ```sh
 docker stack rm fortressone && docker swarm leave --force
+```
+
+Or
+
+```sh
+docker-compose down --volumes
 ```
 
 ## To Do
