@@ -65,22 +65,13 @@ services:
       - FO_HOSTNAME="FortressOne Sydney Quad"
       - FO_RCON_PASSWORD=revival
       - FO_ADMINPWD=revival
-  server-qwprogs:
+  updater:
     depends_on:
       - pubserver
       - duelserver
       - pugserver
       - quadserver
-    image: fortressone/server-qwprogs:latest
-    volumes:
-      - fortress:/fortressonesv
-  map-repo:
-    depends_on:
-      - pubserver
-      - duelserver
-      - pugserver
-      - quadserver
-    image: fortressone/map-repo:latest
+    image: fortressone/updater:latest
     volumes:
       - fortress:/fortressonesv
 volumes:
