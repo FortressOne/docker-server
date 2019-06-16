@@ -28,6 +28,7 @@ services:
   duelserver:
     depends_on:
       - demo-serve
+      - pubserver
     image: fortressone/fortressonesv:latest
     ports:
       - "27501:27500/udp"
@@ -43,6 +44,7 @@ services:
   pugserver:
     depends_on:
       - demo-serve
+      - pubserver
     image: fortressone/fortressonesv:latest
     ports:
       - "27502:27500/udp"
@@ -58,6 +60,7 @@ services:
   quadserver:
     depends_on:
       - demo-serve
+      - pubserver
     image: fortressone/fortressonesv:latest
     ports:
       - "27503:27500/udp"
