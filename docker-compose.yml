@@ -21,6 +21,8 @@ services:
       - pub-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=pub
+      - FO_IP="${FO_IP}"
+      - FO_PORT=27500
       - FO_HOSTNAME="${FO_HOSTNAME} Pub"
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
@@ -31,12 +33,14 @@ services:
       - pubserver
     image: fortressone/fortressonesv:latest
     ports:
-      - "27501:27500/udp"
+      - "27501:27501/udp"
     volumes:
       - fortress:/fortressonesv
       - duel-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=duel
+      - FO_IP="${FO_IP}"
+      - FO_PORT=27501
       - FO_HOSTNAME="${FO_HOSTNAME} Duel"
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
@@ -47,12 +51,14 @@ services:
       - pubserver
     image: fortressone/fortressonesv:latest
     ports:
-      - "27502:27500/udp"
+      - "27502:27502/udp"
     volumes:
       - fortress:/fortressonesv
       - pug-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=pug
+      - FO_IP="${FO_IP}"
+      - FO_PORT=27502
       - FO_HOSTNAME="${FO_HOSTNAME} Pug"
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
@@ -63,12 +69,14 @@ services:
       - pubserver
     image: fortressone/fortressonesv:latest
     ports:
-      - "27503:27500/udp"
+      - "27503:27503/udp"
     volumes:
       - fortress:/fortressonesv
       - quad-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=quad
+      - FO_IP="${FO_IP}"
+      - FO_PORT=27503
       - FO_HOSTNAME="${FO_HOSTNAME} Quad"
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
