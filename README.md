@@ -37,6 +37,6 @@ docker-compose down --volumes
 - [x] auto update qwprogs
 - [x] sane default config
 - [x] autorecord and mvd file server
-- [ ] integrate with discord server bot
+- [x] integrate with discord server bot
 - [ ] qtv
 - [ ] stats
