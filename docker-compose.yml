@@ -9,6 +9,7 @@ services:
       - pug-demos:/demo-serve/pug
       - quad-demos:/demo-serve/quad
       - duel-demos:/demo-serve/duel
+      - staging-demos:/demo-serve/staging
     restart: always
   pubserver:
     depends_on:
@@ -81,6 +82,24 @@ services:
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
     restart: always
+  staging:
+    depends_on:
+      - demo-serve
+      - pubserver
+    image: fortressone/fortressonesv:latest
+    ports:
+      - "27504:27504/udp"
+    volumes:
+      - fortress:/fortressonesv
+      - staging-demos:/fortressonesv/fortress/demos
+    environment:
+      - FO_MODE=staging
+      - FO_IP="${FO_IP}"
+      - FO_PORT=27504
+      - FO_HOSTNAME="${FO_HOSTNAME} Staging"
+      - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
+      - FO_ADMINPWD="${FO_ADMINPWD}"
+    restart: always
   updater:
     depends_on:
       - pubserver
@@ -91,23 +110,10 @@ services:
     volumes:
       - fortress:/fortressonesv
     restart: always
-  discord-command-bot:
-    image: fortressone/discord-bot:latest
-    command: "server --endpoints ${FO_IP}:27500 ${FO_IP}:27501 ${FO_IP}:27502 ${FO_IP}:27503"
-    environment:
-      - QWTF_DISCORD_BOT_TOKEN=${QWTF_DISCORD_BOT_TOKEN}
-      - QWTF_DISCORD_BOT_CLIENT_ID=${QWTF_DISCORD_BOT_CLIENT_ID}
-      - QWTF_DISCORD_BOT_CHANNEL_ID=${QWTF_DISCORD_BOT_CHANNEL_ID}
-  discord-watcher-bot:
-    image: fortressone/discord-bot:latest
-    command: "watcher --endpoints ${FO_IP}:27500 ${FO_IP}:27501 ${FO_IP}:27502 ${FO_IP}:27503"
-    environment:
-      - QWTF_DISCORD_BOT_TOKEN=${QWTF_DISCORD_BOT_TOKEN}
-      - QWTF_DISCORD_BOT_CLIENT_ID=${QWTF_DISCORD_BOT_CLIENT_ID}
-      - QWTF_DISCORD_BOT_CHANNEL_ID=${QWTF_DISCORD_BOT_CHANNEL_ID}
 volumes:
   fortress:
   pub-demos:
   duel-demos:
   pug-demos:
   quad-demos:
+  staging-demos:
