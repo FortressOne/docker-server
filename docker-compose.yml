@@ -3,12 +3,13 @@ services:
   demo-serve:
     image: fortressone/demo-serve:latest
     ports:
-      - "80:80"
+      - "80:8080"
     volumes:
       - pub-demos:/usr/share/nginx/html/demos/pub:ro
       - pug-demos:/usr/share/nginx/html/demos/pug:ro
-      - quad-demos:/usr/share/nginx/html/demos/quad:ro
       - duel-demos:/usr/share/nginx/html/demos/duel:ro
+      - quad-demos:/usr/share/nginx/html/demos/quad:ro
+      - staging-demos:/usr/share/nginx/html/demos/staging:ro
     restart: always
   pubserver:
     depends_on:
@@ -81,6 +82,25 @@ services:
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
     restart: always
+  stagingserver:
+    depends_on:
+      - demo-serve
+      - pubserver
+    image: fortressone/fortressonesv:latest
+    ports:
+      - "27503:27503/udp"
+    volumes:
+      # - fortress:/fortressonesv
+      - staging-demos:/fortressonesv/fortress/demos
+      - ./qwrogs.dat:/fortressonesv/fortress/qwprogs.dat
+    environment:
+      - FO_MODE=staging
+      - FO_IP="${FO_IP}"
+      - FO_PORT=27503
+      - FO_HOSTNAME="${FO_HOSTNAME} Staging"
+      - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
+      - FO_ADMINPWD="${FO_ADMINPWD}"
+    restart: always
   updater:
     depends_on:
       - pubserver
@@ -97,3 +117,4 @@ volumes:
   duel-demos:
   pug-demos:
   quad-demos:
+  staging-demos:
