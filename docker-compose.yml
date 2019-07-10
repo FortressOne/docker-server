@@ -1,5 +1,17 @@
-version: "3"
+version: "3.7"
 services:
+  updater:
+    image: fortressone/updater:latest
+    volumes:
+      - ${FO_QWPROGS_PATH}:/updater/qwprogs.dat/production/qwprogs.dat
+      - ${FO_STAGING_QWPROGS_PATH}:/updater/qwprogs.dat/staging/qwprogs.dat
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - maps:/fortressonesv/fortress/maps
+      - progs:/fortressonesv/fortress/progs
+      - skins:/fortressonesv/fortress/skins
+      - sound:/fortressonesv/fortress/sound
+    restart: always
   demo-serve:
     image: fortressone/demo-serve:latest
     ports:
@@ -7,17 +19,25 @@ services:
     volumes:
       - pub-demos:/usr/share/nginx/html/demos/pub:ro
       - pug-demos:/usr/share/nginx/html/demos/pug:ro
-      - quad-demos:/usr/share/nginx/html/demos/quad:ro
       - duel-demos:/usr/share/nginx/html/demos/duel:ro
+      - quad-demos:/usr/share/nginx/html/demos/quad:ro
+      - staging-demos:/usr/share/nginx/html/demos/staging:ro
     restart: always
   pubserver:
     depends_on:
+      - updater
       - demo-serve
     image: fortressone/fortressonesv:latest
     ports:
       - "27500:27500/udp"
     volumes:
-      - fortress:/fortressonesv
+      - ${FO_QWPROGS_PATH}:/fortressonesv/fortress/qwprogs.dat
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - maps:/fortressonesv/fortress/maps
+      - progs:/fortressonesv/fortress/progs
+      - skins:/fortressonesv/fortress/skins
+      - sound:/fortressonesv/fortress/sound
       - pub-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=pub
@@ -26,16 +46,23 @@ services:
       - FO_HOSTNAME="${FO_HOSTNAME} Pub"
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
+      - FO_MAP=2fort5r
     restart: always
   duelserver:
     depends_on:
+      - updater
       - demo-serve
-      - pubserver
     image: fortressone/fortressonesv:latest
     ports:
       - "27501:27501/udp"
     volumes:
-      - fortress:/fortressonesv
+      - ${FO_QWPROGS_PATH}:/fortressonesv/fortress/qwprogs.dat
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - maps:/fortressonesv/fortress/maps
+      - progs:/fortressonesv/fortress/progs
+      - skins:/fortressonesv/fortress/skins
+      - sound:/fortressonesv/fortress/sound
       - duel-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=duel
@@ -44,16 +71,23 @@ services:
       - FO_HOSTNAME="${FO_HOSTNAME} Duel"
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
+      - FO_MAP=1on1r
     restart: always
   pugserver:
     depends_on:
+      - updater
       - demo-serve
-      - pubserver
     image: fortressone/fortressonesv:latest
     ports:
       - "27502:27502/udp"
     volumes:
-      - fortress:/fortressonesv
+      - ${FO_QWPROGS_PATH}:/fortressonesv/fortress/qwprogs.dat
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - maps:/fortressonesv/fortress/maps
+      - progs:/fortressonesv/fortress/progs
+      - skins:/fortressonesv/fortress/skins
+      - sound:/fortressonesv/fortress/sound
       - pug-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=pug
@@ -62,16 +96,23 @@ services:
       - FO_HOSTNAME="${FO_HOSTNAME} Pug"
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
+      - FO_MAP=2fort5r
     restart: always
   quadserver:
     depends_on:
+      - updater
       - demo-serve
-      - pubserver
     image: fortressone/fortressonesv:latest
     ports:
       - "27503:27503/udp"
     volumes:
-      - fortress:/fortressonesv
+      - ${FO_QWPROGS_PATH}:/fortressonesv/fortress/qwprogs.dat
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - maps:/fortressonesv/fortress/maps
+      - progs:/fortressonesv/fortress/progs
+      - skins:/fortressonesv/fortress/skins
+      - sound:/fortressonesv/fortress/sound
       - quad-demos:/fortressonesv/fortress/demos
     environment:
       - FO_MODE=quad
@@ -80,20 +121,42 @@ services:
       - FO_HOSTNAME="${FO_HOSTNAME} Quad"
       - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
       - FO_ADMINPWD="${FO_ADMINPWD}"
+      - FO_MAP=2fort5r
     restart: always
-  updater:
+  stagingserver:
     depends_on:
-      - pubserver
-      - duelserver
-      - pugserver
-      - quadserver
-    image: fortressone/updater:latest
+      - updater
+      - demo-serve
+    image: fortressone/fortressonesv:latest
+    ports:
+      - "27504:27504/udp"
     volumes:
-      - fortress:/fortressonesv
+      - ${FO_STAGING_QWPROGS_PATH}:/fortressonesv/fortress/qwprogs.dat
+      - lits:/fortressonesv/fortress/lits
+      - locs:/fortressonesv/fortress/locs
+      - maps:/fortressonesv/fortress/maps
+      - progs:/fortressonesv/fortress/progs
+      - skins:/fortressonesv/fortress/skins
+      - sound:/fortressonesv/fortress/sound
+      - staging-demos:/fortressonesv/fortress/demos
+    environment:
+      - FO_MODE=staging
+      - FO_IP="${FO_IP}"
+      - FO_PORT=27504
+      - FO_HOSTNAME="${FO_HOSTNAME} Staging"
+      - FO_RCON_PASSWORD="${FO_RCON_PASSWORD}"
+      - FO_ADMINPWD="${FO_ADMINPWD}"
+      - FO_MAP=2fort5r
     restart: always
 volumes:
-  fortress:
   pub-demos:
   duel-demos:
   pug-demos:
   quad-demos:
+  staging-demos:
+  lits:
+  locs:
+  maps:
+  progs:
+  skins:
+  sound:
