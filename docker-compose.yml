@@ -5,12 +5,12 @@ services:
     volumes:
       - ${FO_QWPROGS_PATH}:/updater/qwprogs.dat/production/qwprogs.dat
       - ${FO_STAGING_QWPROGS_PATH}:/updater/qwprogs.dat/staging/qwprogs.dat
-      - lits:/fortressonesv/fortress/lits
-      - locs:/fortressonesv/fortress/locs
-      - maps:/fortressonesv/fortress/maps
-      - progs:/fortressonesv/fortress/progs
-      - skins:/fortressonesv/fortress/skins
-      - sound:/fortressonesv/fortress/sound
+      - lits:/updater/fortress/lits
+      - locs:/updater/fortress/locs
+      - maps:/updater/fortress/maps
+      - progs:/updater/fortress/progs
+      - skins:/updater/fortress/skins
+      - sound:/updater/fortress/sound
     restart: always
   demo-serve:
     image: fortressone/demo-serve:latest
