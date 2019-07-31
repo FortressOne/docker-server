@@ -17,11 +17,11 @@ services:
     ports:
       - "80:80"
     volumes:
-      - pub-demos:/usr/share/nginx/html/demos/pub:ro
-      - pug-demos:/usr/share/nginx/html/demos/pug:ro
-      - duel-demos:/usr/share/nginx/html/demos/duel:ro
-      - quad-demos:/usr/share/nginx/html/demos/quad:ro
-      - staging-demos:/usr/share/nginx/html/demos/staging:ro
+      - pub-demos:/usr/share/nginx/html/demos/pub
+      - pug-demos:/usr/share/nginx/html/demos/pug
+      - duel-demos:/usr/share/nginx/html/demos/duel
+      - quad-demos:/usr/share/nginx/html/demos/quad
+      - staging-demos:/usr/share/nginx/html/demos/staging
     restart: always
   pubserver:
     depends_on:
