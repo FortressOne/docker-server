@@ -4,9 +4,6 @@ services:
     image: fortressone/updater:latest
     volumes:
       - ${FO_QWPROGS_PATH}:/updater/qwprogs.dat/production/qwprogs.dat
-      - ${FO_STAGING_QWPROGS_PATH}:/updater/qwprogs.dat/staging/qwprogs.dat
-      - ${FO_STAGING_MENU_PATH}:/updater/qwprogs.dat/staging/menu.dat
-      - ${FO_STAGING_CSPROGS_PATH}:/update/qwprogs.dat/staging/csprogs.dat
       - lits:/updater/fortress/lits
       - locs:/updater/fortress/locs
       - maps:/updater/fortress/maps
