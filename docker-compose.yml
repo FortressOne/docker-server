@@ -5,6 +5,8 @@ services:
     volumes:
       - ${FO_QWPROGS_PATH}:/updater/qwprogs.dat/production/qwprogs.dat
       - ${FO_STAGING_QWPROGS_PATH}:/updater/qwprogs.dat/staging/qwprogs.dat
+      - ${FO_STAGING_MENU_PATH}:/updater/qwprogs.dat/staging/menu.dat
+      - ${FO_STAGING_CSPROGS_PATH}:/update/qwprogs.dat/staging/csprogs.dat
       - lits:/updater/fortress/lits
       - locs:/updater/fortress/locs
       - maps:/updater/fortress/maps
@@ -132,6 +134,8 @@ services:
       - "27504:27504/udp"
     volumes:
       - ${FO_STAGING_QWPROGS_PATH}:/fortressonesv/fortress/qwprogs.dat
+      - ${FO_STAGING_MENU_PATH}:/fortressonesv/fortress/menu.dat
+      - ${FO_STAGING_CSPROGS_PATH}:/fortressonesv/fortress/csprogs.dat
       - lits:/fortressonesv/fortress/lits
       - locs:/fortressonesv/fortress/locs
       - maps:/fortressonesv/fortress/maps
