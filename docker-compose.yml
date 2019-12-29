@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   updater:
-    image: updater:latest
+    image: fortressone/updater:latest
     environment:
       - STORAGE_AWS_SECRET_ACCESS_KEY
       - STORAGE_AWS_ACCESS_KEY_ID
