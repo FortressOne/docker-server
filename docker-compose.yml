@@ -5,26 +5,20 @@ services:
     environment:
       - AWS_SECRET_ACCESS_KEY=${STORAGE_AWS_SECRET_ACCESS_KEY}
       - AWS_ACCESS_KEY_ID=${STORAGE_AWS_ACCESS_KEY_ID}
+      - FO_REGION
     volumes:
       - assets:/updater/map-repo/fortress/
       - master_dats:/updater/dats/master/
       - staging_dats:/updater/dats/staging/
-    restart: always
-  demo-serve:
-    image: fortressone/demo-serve:latest
-    ports:
-      - 80:80
-    volumes:
-      - pub-demos:/usr/share/nginx/html/demos/pub/
-      - duel-demos:/usr/share/nginx/html/demos/duel/
-      - clan-demos:/usr/share/nginx/html/demos/clan/
-      - quad-demos:/usr/share/nginx/html/demos/quad/
-      - staging-demos:/usr/share/nginx/html/demos/staging/
+      - pub-demos:/updater/demos/pub/
+      - duel-demos:/updater/demos/duel/
+      - clan-demos:/updater/demos/clan/
+      - quad-demos:/updater/demos/quad/
+      - staging-demos:/updater/demos/staging/
     restart: always
   pubserver:
     depends_on:
       - updater
-      - demo-serve
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
@@ -43,7 +37,6 @@ services:
   duelserver:
     depends_on:
       - updater
-      - demo-serve
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
@@ -62,7 +55,6 @@ services:
   clanserver:
     depends_on:
       - updater
-      - demo-serve
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
@@ -81,7 +73,6 @@ services:
   quadserver:
     depends_on:
       - updater
-      - demo-serve
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
@@ -100,7 +91,6 @@ services:
   stagingserver:
     depends_on:
       - updater
-      - demo-serve
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
