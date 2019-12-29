@@ -3,8 +3,8 @@ services:
   updater:
     image: fortressone/updater:latest
     environment:
-      - STORAGE_AWS_SECRET_ACCESS_KEY
-      - STORAGE_AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY=${STORAGE_AWS_SECRET_ACCESS_KEY}
+      - AWS_ACCESS_KEY_ID=${STORAGE_AWS_ACCESS_KEY_ID}
     volumes:
       - assets:/updater/map-repo/fortress/
       - master_dats:/updater/dats/master/
