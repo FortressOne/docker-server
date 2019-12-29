@@ -3,8 +3,8 @@ services:
   updater:
     image: updater:latest
     environment:
-      - AWS_SECRET_ACCESS_KEY
-      - AWS_ACCESS_KEY_ID
+      - STORAGE_AWS_SECRET_ACCESS_KEY
+      - STORAGE_AWS_ACCESS_KEY_ID
     volumes:
       - assets:/updater/map-repo/fortress/
       - master_dats:/updater/dats/master/
@@ -25,7 +25,7 @@ services:
     depends_on:
       - updater
       - demo-serve
-    image: fortressonesv:latest
+    image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
       - +set hostname "${FO_HOSTNAME}"
@@ -44,7 +44,7 @@ services:
     depends_on:
       - updater
       - demo-serve
-    image: fortressonesv:latest
+    image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
       - +set hostname "${FO_HOSTNAME}"
@@ -63,7 +63,7 @@ services:
     depends_on:
       - updater
       - demo-serve
-    image: fortressonesv:latest
+    image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
       - +set hostname "${FO_HOSTNAME}"
@@ -82,7 +82,7 @@ services:
     depends_on:
       - updater
       - demo-serve
-    image: fortressonesv:latest
+    image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
       - +set hostname "${FO_HOSTNAME}"
@@ -101,7 +101,7 @@ services:
     depends_on:
       - updater
       - demo-serve
-    image: fortressonesv:latest
+    image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
       - +set hostname "${FO_HOSTNAME}"
