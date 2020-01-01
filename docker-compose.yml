@@ -22,13 +22,14 @@ services:
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
+      - -port 27500
       - +set hostname "${FO_HOSTNAME} Pub"
       - +set rcon_password "${FO_RCON_PASSWORD}"
       - +localinfo adminpwd "${FO_ADMINPWD}"
       - +exec fo_pubmode.cfg
       - +map 2fort5r
     ports:
-      - 27500:27500/udp
+      - "27500:27500/udp"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -40,13 +41,14 @@ services:
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
+      - -port 27501
       - +set hostname "${FO_HOSTNAME} Duel"
       - +set rcon_password "${FO_RCON_PASSWORD}"
       - +localinfo adminpwd "${FO_ADMINPWD}"
       - +exec fo_duelmode.cfg
       - +map 1on1r
     ports:
-      - 27501:27500/udp
+      - "27501:27501/udp"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -58,13 +60,14 @@ services:
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
+      - -port 27502
       - +set hostname "${FO_HOSTNAME} Clan"
       - +set rcon_password "${FO_RCON_PASSWORD}"
       - +localinfo adminpwd "${FO_ADMINPWD}"
       - +exec fo_clanmode.cfg
       - +map 2fort5r
     ports:
-      - 27502:27500/udp
+      - "27502:27502/udp"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -76,13 +79,14 @@ services:
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
+      - -port 27503
       - +set hostname "${FO_HOSTNAME} Quad"
       - +set rcon_password "${FO_RCON_PASSWORD}"
       - +localinfo adminpwd "${FO_ADMINPWD}"
       - +exec fo_quadmode.cfg
       - +map 2fort5r
     ports:
-      - 27503:27500/udp
+      - "27503:27503/udp"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -94,13 +98,14 @@ services:
     image: fortressone/fortressonesv:latest
     command: |
       - -ip ${FO_IP}
+      - -port 27504
       - +set hostname "${FO_HOSTNAME} Staging"
       - +set rcon_password "${FO_RCON_PASSWORD}"
       - +localinfo adminpwd "${FO_ADMINPWD}"
       - +exec fo_stagingmode.cfg
       - +map 2fort5r
     ports:
-      - 27504:27500/udp
+      - "27504:27504/udp"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
