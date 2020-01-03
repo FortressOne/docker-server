@@ -5,9 +5,9 @@ services:
     image: fortressone/updater:latest
     restart: always
     environment:
-      - AWS_SECRET_ACCESS_KEY=${STORAGE_AWS_SECRET_ACCESS_KEY}
-      - AWS_ACCESS_KEY_ID=${STORAGE_AWS_ACCESS_KEY_ID}
-      - FO_REGION
+      - AWS_SECRET_ACCESS_KEY=${S3_AWS_SECRET_ACCESS_KEY}
+      - AWS_ACCESS_KEY_ID=${S3_AWS_ACCESS_KEY_ID}
+      - S3_URI
     volumes:
       - assets:/updater/map-repo/fortress/
       - master_dats:/updater/dats/master/
