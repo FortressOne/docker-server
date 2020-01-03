@@ -6,10 +6,22 @@ Set up:
 docker-compose up -d
 ```
 
+List containers:
+
+```sh
+docker ps
+```
+
 Tail logs:
 
 ```sh
-docker-compose logs
+docker-compose logs -f
+```
+
+Attach to interactive shell:
+
+```sh
+docker attach <container>
 ```
 
 Pull down:
