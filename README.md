@@ -1,50 +1,70 @@
 # FortressOne docker compose
 
-Set up:
+## Dependencies
+
+You will need docker and docker-compose installed.
+
+
+## Configuration
+
+Create a .env file like this:
+
+```
+export FO_IP=<public IP address>
+export FO_HOSTNAME=<server description>
+export FO_RCON_PASSWORD=<rcon password>
+export FO_ADMINPWD=<admin password>
+export FO_PASSWORD=<server password>
+```
+
+See .env.example file for more.
+
+Source the file:
+
+```
+source .env
+```
+
+
+## Start server
+
+This will run five local servers on ports 27500-27504, and automatically pull down the required assets.
+
+### In foreground
+
+```sh
+docker-compose up
+```
+
+### As daemon
 
 ```sh
 docker-compose up -d
 ```
 
-List containers:
-
-```sh
-docker ps
-```
-
-Tail logs:
+#### Tail logs
 
 ```sh
 docker-compose logs -f
 ```
 
-Attach to interactive shell:
+#### List containers
+
+```sh
+docker ps
+```
+
+#### Attach to interactive shell:
 
 ```sh
 docker attach <container>
 ```
 
-Pull down:
+#### Stop
 
 ```sh
 docker-compose down
 ```
-
-## Fire up a local server
-
-Create a .env file like this:
-
-```
-export FO_IP="220.123.456.789"
-export FO_HOSTNAME="FortressOne Woop Woop"
-export FO_RCON_PASSWORD=rc0n_p4$$w0rd
-export FO_ADMINPWD=adm1n_p4$$w0rd
-export FO_PASSWORD=serv3r_p4$$w0rd
-export STORAGE_AWS_SECRET_ACCESS_KEY="klasjdlkjlkjaksjdj3ij2l34lk2jk432jlk4j32"
-export STORAGE_AWS_ACCESS_KEY_ID="KDJSAAJSDJSDKALJDLKA"
-```
-
-This will fire up servers on ports 27500-27504.
 
 
 ## Create a new server instance with docker-machine
