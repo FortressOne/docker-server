@@ -19,12 +19,6 @@ export FO_PASSWORD=<server password>
 
 See .env.example file for more.
 
-Source the file:
-
-```
-source .env
-```
-
 
 ## Start server
 
