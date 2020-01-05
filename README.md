@@ -90,6 +90,6 @@ docker-machine create --driver linode --linode-token <LINODE_API_TOKEN> --linode
 - [x] auto update qwprogs
 - [x] sane default config
 - [x] autorecord and mvd file server
-- [x] integrate with discord server bot
+- [x] QWFWD
 - [ ] qtv
 - [ ] stats

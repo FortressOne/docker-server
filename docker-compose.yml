@@ -122,6 +122,13 @@ services:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
       - staging-demos:/fortressonesv/fortress/demos/
+  qwfwd:
+    image: fortressone/qwfwd:latest
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - "30000:30000/udp"
 volumes:
   pub-demos:
   duel-demos:
