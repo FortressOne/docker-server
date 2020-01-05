@@ -123,7 +123,7 @@ services:
       - staging_dats:/fortressonesv/fortress/dats/
       - staging-demos:/fortressonesv/fortress/demos/
   qwfwd:
-    image: qwfwd:latest
+    image: fortressone/qwfwd:latest
     stdin_open: true
     tty: true
     restart: always
