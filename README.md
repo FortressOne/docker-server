@@ -1,60 +1,46 @@
-# FortressOne docker compose
+# FortressOne Server Suite
 
 ## Dependencies
 
-You will need docker and docker-compose installed.
+Install [Docker Engine](https://docs.docker.com/compose/install/) and
+[Docker Compose](https://docs.docker.com/compose/install/)
 
 
 ## Configuration
 
-Create a .env file like this:
-
-```
-export FO_IP=<public IP address>
-export FO_HOSTNAME=<server description>
-export FO_RCON_PASSWORD=<rcon password>
-export FO_ADMINPWD=<admin password>
-export FO_PASSWORD=<server password>
-```
-
-See .env.example file for more.
+Edit the `.env.example` and rename it to `.env`.
 
 
-## Start server
+## Usage
 
-This will run five local servers on ports 27500-27504, and automatically pull down the required assets.
+### Start server
 
-### In foreground
-
-```sh
-docker-compose up
-```
-
-### As daemon
+This will run five local servers on ports 27500-27504, and automatically pull
+down the required assets.
 
 ```sh
 docker-compose up -d
 ```
 
-#### Tail logs
+### Tail logs
 
 ```sh
 docker-compose logs -f
 ```
 
-#### List containers
+### List containers
 
 ```sh
 docker ps
 ```
 
-#### Attach to interactive shell:
+### Attach to interactive shell:
 
 ```sh
 docker attach <container>
 ```
 
-#### Stop
+### Stop
 
 ```sh
 docker-compose down
