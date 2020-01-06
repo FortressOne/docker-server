@@ -34,7 +34,7 @@ docker-compose logs -f
 docker ps
 ```
 
-### Attach to interactive shell:
+### Attach to interactive shell
 
 ```sh
 docker attach <container>
@@ -109,6 +109,24 @@ docker-machine create \
 --linode-instance-type g6-nanode-1 \
 --linode-region us-central \
 dallas
+```
+
+
+## Record and upload demos to [QWTF Demo Archive](https://demos.fortressone.org)
+
+Add the following confiuration to your .env file. Note these are dummy values,
+ask in [FortressOne Discord](https://discord.fortressone.org) for credentials
+
+```
+export S3_AWS_ACCESS_KEY_ID="ASDASJKDAJSKDJAKSJDA"
+export S3_AWS_SECRET_ACCESS_KEY="aADsdalkjdsaDSadsajdlkaDASdsakdjsaldADsa"
+export S3_URI="s3://fortressone-demos/timbuktu/"
+```
+
+Then restart the app
+
+```
+docker-compose restart
 ```
 
 
