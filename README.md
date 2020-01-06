@@ -51,22 +51,62 @@ docker-compose down
 
 E.G. I used this for Tokyo AWS:
 ```
-docker-machine create --driver amazonec2 --amazonec2-access-key <AWS_ACCESS_KEY> --amazonec2-secret-key <AWS_SECRET_KEY> --amazonec2-root-size 30 --amazonec2-region ap-northeast-1 --amazonec2-open-port 27500/udp --amazonec2-open-port 27501/udp --amazonec2-open-port 27502/udp --amazonec2-open-port 27503/udp --amazonec2-open-port 27504/udp tokyo
+docker-machine create \
+--driver amazonec2 \
+--amazonec2-access-key <AWS_ACCESS_KEY> \
+--amazonec2-secret-key <AWS_SECRET_KEY> \
+--amazonec2-root-size 30 \
+--amazonec2-region ap-northeast-1 \
+--amazonec2-open-port 27500/udp \
+--amazonec2-open-port 27501/udp \
+--amazonec2-open-port 27502/udp \
+--amazonec2-open-port 27503/udp \
+--amazonec2-open-port 27504/udp \
+tokyo
 ```
 
 This for Stockholm (where default instance t2.micro isn't available):
 ```
-docker-machine create --driver amazonec2 --amazonec2-instance-type t3.micro --amazonec2-access-key <AWS_ACCESS_KEY> --amazonec2-secret-key <AWS_SECRET_KEY> --amazonec2-root-size 30 --amazonec2-region eu-north-1 --amazonec2-open-port 27500/udp --amazonec2-open-port 27501/udp --amazonec2-open-port 27502/udp --amazonec2-open-port 27503/udp --amazonec2-open-port 27504/udp stockholm
+docker-machine create \
+--driver amazonec2 \
+--amazonec2-instance-type t3.micro \
+--amazonec2-access-key <AWS_ACCESS_KEY> \
+--amazonec2-secret-key <AWS_SECRET_KEY> \
+--amazonec2-root-size 30 \
+--amazonec2-region eu-north-1 \
+--amazonec2-open-port 27500/udp \
+--amazonec2-open-port 27501/udp \
+--amazonec2-open-port 27502/udp \
+--amazonec2-open-port 27503/udp \
+--amazonec2-open-port 27504/udp \
+stockholm
 ```
 
 This for California (where zone a isn't available):
 ```
-docker-machine create --driver amazonec2 --amazonec2-access-key <AWS_ACCESS_KEY> --amazonec2-secret-key <AWS_SECRET_KEY> --amazonec2-root-size 30 --amazonec2-region us-west-1 --amazonec2-zone b --amazonec2-open-port 27500/udp --amazonec2-open-port 27501/udp --amazonec2-open-port 27502/udp --amazonec2-open-port 27503/udp --amazonec2-open-port 27504/udp california
+docker-machine create \
+--driver amazonec2 \
+--amazonec2-access-key <AWS_ACCESS_KEY> \
+--amazonec2-secret-key <AWS_SECRET_KEY> \
+--amazonec2-root-size 30 \
+--amazonec2-region us-west-1 \
+--amazonec2-zone b \
+--amazonec2-open-port 27500/udp \
+--amazonec2-open-port 27501/udp \
+--amazonec2-open-port 27502/udp \
+--amazonec2-open-port 27503/udp \
+--amazonec2-open-port 27504/udp \
+california
 ```
 
 I used this for Dallas Linode:
 ```
-docker-machine create --driver linode --linode-token <LINODE_API_TOKEN> --linode-instance-type g6-nanode-1 --linode-region us-central dallas
+docker-machine create \
+--driver linode \
+--linode-token <LINODE_API_TOKEN> \
+--linode-instance-type g6-nanode-1 \
+--linode-region us-central \
+dallas
 ```
 
 
