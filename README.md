@@ -1,5 +1,16 @@
 # FortressOne Server Suite
 
+Runs five automatically updated FortressOne servers and a QWfwd proxy.
+
+| Mode    | Port  |
+| ------- | ----- |
+| Pub     | 27500 |
+| Duel    | 27501 |
+| Clan    | 27502 |
+| Quad    | 27503 |
+| Staging | 27504 |
+| QWfwd   | 30000 |
+
 ## Dependencies
 
 Install [Docker Engine](https://docs.docker.com/compose/install/) and
@@ -64,6 +75,7 @@ docker-machine create \
 --amazonec2-open-port 27502/udp \
 --amazonec2-open-port 27503/udp \
 --amazonec2-open-port 27504/udp \
+--amazonec2-open-port 30000/udp \
 tokyo
 ```
 
@@ -81,6 +93,7 @@ docker-machine create \
 --amazonec2-open-port 27502/udp \
 --amazonec2-open-port 27503/udp \
 --amazonec2-open-port 27504/udp \
+--amazonec2-open-port 30000/udp \
 stockholm
 ```
 
@@ -98,6 +111,7 @@ docker-machine create \
 --amazonec2-open-port 27502/udp \
 --amazonec2-open-port 27503/udp \
 --amazonec2-open-port 27504/udp \
+--amazonec2-open-port 30000/udp \
 california
 ```
 
