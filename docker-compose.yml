@@ -67,6 +67,7 @@ services:
     command: |
       -ip ${FO_IP}
       +set hostname "${FO_HOSTNAME} Clan"
+      +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_clanmode.cfg
@@ -87,6 +88,7 @@ services:
     command: |
       -ip ${FO_IP}
       +set hostname "${FO_HOSTNAME} Quad"
+      +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_quadmode.cfg
