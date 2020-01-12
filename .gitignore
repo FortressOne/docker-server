@@ -1,3 +1,4 @@
 .env*
 !.env.example
 deploy*.sh
+restart*.sh
