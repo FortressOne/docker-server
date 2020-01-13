@@ -33,6 +33,7 @@ services:
       +map 2fort5r
     ports:
       - "27500:27500/udp"
+      - "27500:27500"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -53,6 +54,7 @@ services:
       +map 1on1r
     ports:
       - "27501:27500/udp"
+      - "27501:27500"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -74,6 +76,7 @@ services:
       +map 2fort5r
     ports:
       - "27502:27500/udp"
+      - "27502:27500"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -95,6 +98,7 @@ services:
       +map 2fort5r
     ports:
       - "27503:27500/udp"
+      - "27503:27500"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -115,6 +119,7 @@ services:
       +map 2fort5r
     ports:
       - "27504:27500/udp"
+      - "27504:27500"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
@@ -127,6 +132,21 @@ services:
     command: +set hostname "${FO_HOSTNAME} QWfwd"
     ports:
       - "30000:30000/udp"
+  qtv:
+    image: fortressone/qtv:latest
+    stdin_open: true
+    tty: true
+    restart: always
+    command: |
+      +hostname "${FO_HOSTNAME} QTV"
+      +qtv "${FO_IP}:27500"
+      +qtv "${FO_IP}:27501"
+      +qtv "${FO_IP}:27502"
+      +qtv "${FO_IP}:27503"
+      +qtv "${FO_IP}:27504"
+    ports:
+      - "27599:27599/udp"
+      - "27599:27599"
 volumes:
   pub-demos:
   duel-demos:

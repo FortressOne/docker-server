@@ -68,10 +68,15 @@ docker-machine create \
 --amazonec2-root-size 30 \
 --amazonec2-region ap-northeast-1 \
 --amazonec2-open-port 27500/udp \
+--amazonec2-open-port 27500 \
 --amazonec2-open-port 27501/udp \
+--amazonec2-open-port 27501 \
 --amazonec2-open-port 27502/udp \
+--amazonec2-open-port 27502 \
 --amazonec2-open-port 27503/udp \
+--amazonec2-open-port 27503 \
 --amazonec2-open-port 27504/udp \
+--amazonec2-open-port 27504 \
 --amazonec2-open-port 30000/udp \
 tokyo
 ```
@@ -86,10 +91,15 @@ docker-machine create \
 --amazonec2-root-size 30 \
 --amazonec2-region eu-north-1 \
 --amazonec2-open-port 27500/udp \
+--amazonec2-open-port 27500 \
 --amazonec2-open-port 27501/udp \
+--amazonec2-open-port 27501 \
 --amazonec2-open-port 27502/udp \
+--amazonec2-open-port 27502 \
 --amazonec2-open-port 27503/udp \
+--amazonec2-open-port 27503 \
 --amazonec2-open-port 27504/udp \
+--amazonec2-open-port 27504 \
 --amazonec2-open-port 30000/udp \
 stockholm
 ```
@@ -104,10 +114,15 @@ docker-machine create \
 --amazonec2-region us-west-1 \
 --amazonec2-zone b \
 --amazonec2-open-port 27500/udp \
+--amazonec2-open-port 27500 \
 --amazonec2-open-port 27501/udp \
+--amazonec2-open-port 27501 \
 --amazonec2-open-port 27502/udp \
+--amazonec2-open-port 27502 \
 --amazonec2-open-port 27503/udp \
+--amazonec2-open-port 27503 \
 --amazonec2-open-port 27504/udp \
+--amazonec2-open-port 27504 \
 --amazonec2-open-port 30000/udp \
 california
 ```
@@ -148,5 +163,5 @@ docker-compose restart
 - [x] sane default config
 - [x] autorecord and mvd file server
 - [x] QWFWD
-- [ ] qtv
+- [x] QTV
 - [ ] stats
