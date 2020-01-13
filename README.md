@@ -14,7 +14,7 @@ Runs five automatically updated FortressOne servers and a QWfwd proxy.
 ## Dependencies
 
 Install [Docker Engine](https://docs.docker.com/compose/install/) and
-[Docker Compose](https://docs.docker.com/compose/install/)
+[Docker Compose](https://docs.docker.com/compose/install/).
 
 
 ## Configuration
@@ -25,9 +25,6 @@ Edit the `.env.example` and rename it to `.env`.
 ## Usage
 
 ### Start server
-
-This will run five local servers on ports 27500-27504, and automatically pull
-down the required assets.
 
 ```sh
 docker-compose up -d
@@ -45,7 +42,7 @@ docker-compose logs -f
 docker ps
 ```
 
-### Attach to interactive shell
+### Attach to container
 
 ```sh
 docker attach <container>
@@ -60,7 +57,7 @@ docker-compose down
 
 ## Create a new server instance in the cloud
 
-Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/)
+Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/).
 
 E.G. I used this for Tokyo AWS:
 ```
@@ -132,9 +129,9 @@ Add the following confiuration to your .env file. Note these are dummy values,
 ask in [FortressOne Discord](https://discord.fortressone.org) for credentials
 
 ```
-export S3_AWS_ACCESS_KEY_ID="ASDASJKDAJSKDJAKSJDA"
-export S3_AWS_SECRET_ACCESS_KEY="aADsdalkjdsaDSadsajdlkaDASdsakdjsaldADsa"
-export S3_URI="s3://fortressone-demos/timbuktu/"
+S3_AWS_ACCESS_KEY_ID=ASDASJKDAJSKDJAKSJDA
+S3_AWS_SECRET_ACCESS_KEY=aADsdalkjdsaDSadsajdlkaDASdsakdjsaldADsa
+S3_URI=s3://fortressone-demos/timbuktu/
 ```
 
 Then restart the app
