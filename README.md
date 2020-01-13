@@ -1,6 +1,6 @@
 # FortressOne Server Suite
 
-Runs five automatically updated FortressOne servers and a QWfwd proxy.
+Runs five automatically updated FortressOne FTE QuakeWorld servers, QuakeTV and a QWfwd proxy.
 
 | Mode    | Port  |
 | ------- | ----- |
@@ -9,7 +9,7 @@ Runs five automatically updated FortressOne servers and a QWfwd proxy.
 | Clan    | 27502 |
 | Quad    | 27503 |
 | Staging | 27504 |
-| QTV     | 28000 |
+| QuakeTV | 28000 |
 | QWfwd   | 30000 |
 
 ## Dependencies
