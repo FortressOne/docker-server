@@ -124,14 +124,6 @@ services:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
       - staging-demos:/fortressonesv/fortress/demos/
-  qwfwd:
-    image: fortressone/qwfwd:latest
-    stdin_open: true
-    tty: true
-    restart: always
-    command: +set hostname "${FO_HOSTNAME} QWfwd"
-    ports:
-      - "30000:30000/udp"
   qtv:
     image: fortressone/qtv:latest
     stdin_open: true
@@ -147,6 +139,14 @@ services:
     ports:
       - "28000:28000/udp"
       - "28000:28000"
+  qwfwd:
+    image: fortressone/qwfwd:latest
+    stdin_open: true
+    tty: true
+    restart: always
+    command: +set hostname "${FO_HOSTNAME} QWfwd"
+    ports:
+      - "30000:30000/udp"
 volumes:
   pub-demos:
   duel-demos:

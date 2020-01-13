@@ -9,6 +9,7 @@ Runs five automatically updated FortressOne servers and a QWfwd proxy.
 | Clan    | 27502 |
 | Quad    | 27503 |
 | Staging | 27504 |
+| QTV     | 28000 |
 | QWfwd   | 30000 |
 
 ## Dependencies
@@ -165,6 +166,6 @@ docker-compose restart
 - [x] auto update qwprogs
 - [x] sane default config
 - [x] autorecord and mvd file server
-- [x] QWFWD
 - [x] QTV
+- [x] QWFWD
 - [ ] stats
