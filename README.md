@@ -78,6 +78,7 @@ docker-machine create \
 --amazonec2-open-port 27504/udp \
 --amazonec2-open-port 27504 \
 --amazonec2-open-port 30000/udp \
+--amazonec2-open-port 28000 \
 tokyo
 ```
 
@@ -101,6 +102,7 @@ docker-machine create \
 --amazonec2-open-port 27504/udp \
 --amazonec2-open-port 27504 \
 --amazonec2-open-port 30000/udp \
+--amazonec2-open-port 28000 \
 stockholm
 ```
 
@@ -124,6 +126,7 @@ docker-machine create \
 --amazonec2-open-port 27504/udp \
 --amazonec2-open-port 27504 \
 --amazonec2-open-port 30000/udp \
+--amazonec2-open-port 28000 \
 california
 ```
 
