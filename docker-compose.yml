@@ -132,6 +132,21 @@ services:
     command: +set hostname "${FO_HOSTNAME} QWfwd"
     ports:
       - "30000:30000/udp"
+  qtv:
+    image: fortressone/qtv:latest
+    stdin_open: true
+    tty: true
+    restart: always
+    command: |
+      +hostname "${FO_HOSTNAME} QTV"
+      +qtv "${FO_IP}:27500"
+      +qtv "${FO_IP}:27501"
+      +qtv "${FO_IP}:27502"
+      +qtv "${FO_IP}:27503"
+      +qtv "${FO_IP}:27504"
+    ports:
+      - "27599:27599/udp"
+      - "27599:27599"
 volumes:
   pub-demos:
   duel-demos:
