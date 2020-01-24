@@ -28,7 +28,6 @@ services:
       -ip ${FO_IP}
       +set hostname "${FO_HOSTNAME} Pub"
       +set rcon_password "${FO_RCON_PASSWORD}"
-      # +set qtv_password "${FO_QTV_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +map se2
@@ -50,7 +49,6 @@ services:
       -ip ${FO_IP}
       +set hostname "${FO_HOSTNAME} Duel"
       +set rcon_password "${FO_RCON_PASSWORD}"
-      # +set qtv_password "${FO_QTV_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_duelmode.cfg
       +map 1on1r
@@ -73,7 +71,6 @@ services:
       +set hostname "${FO_HOSTNAME} Clan"
       +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
-      # +set qtv_password "${FO_QTV_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_clanmode.cfg
       +map 2fort5r
@@ -96,7 +93,6 @@ services:
       +set hostname "${FO_HOSTNAME} Quad"
       +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
-      # +set qtv_password "${FO_QTV_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_quadmode.cfg
       +map 2fort5r
@@ -118,7 +114,6 @@ services:
       -ip ${FO_IP}
       +set hostname "${FO_HOSTNAME} Trick"
       +set rcon_password "${FO_RCON_PASSWORD}"
-      # +set qtv_password "${FO_QTV_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +sv_cheats 1
@@ -141,7 +136,6 @@ services:
       -ip ${FO_IP}
       +set hostname "${FO_HOSTNAME} Staging"
       +set rcon_password "${FO_RCON_PASSWORD}"
-      # +set qtv_password "${FO_QTV_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_stagingmode.cfg
       +map 2fort5r
@@ -152,22 +146,6 @@ services:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
       - staging-demos:/fortressonesv/fortress/demos/
-  # qtv:
-  #   image: fortressone/qtv:latest
-  #   stdin_open: true
-  #   tty: true
-  #   restart: always
-  #   command: |
-  #     +hostname ${FO_IP}
-  #     +qtv "${FO_IP}:27500"
-  #     +qtv "${FO_IP}:27501"
-  #     +qtv "${FO_IP}:27502"
-  #     +qtv "${FO_IP}:27503"
-  #     +qtv "${FO_IP}:27504"
-  #     +qtv_password "${FO_QTV_PASSWORD}"
-  #   ports:
-  #     - "28000:28000/udp"
-  #     - "28000:28000"
   qwfwd:
     image: fortressone/qwfwd:latest
     stdin_open: true
