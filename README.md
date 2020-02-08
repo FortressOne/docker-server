@@ -1,17 +1,17 @@
 # FortressOne Server Suite
 
-Runs five automatically updated FortressOne FTE QuakeWorld servers, QuakeTV and a QWfwd proxy.
+Runs automatically updated FortressOne FTE QuakeWorld servers, QuakeTV and a QWfwd proxy.
 
-| Mode    | Port  |
-| ------- | ----- |
-| Pub     | 27500 |
-| Duel    | 27501 |
-| Clan    | 27502 |
-| Quad    | 27503 |
-| Trick   | 27504 |
-| Staging | 27505 |
-<!-- | QuakeTV | 28000 | -->
-| QWfwd   | 30000 |
+| Mode     | Port  |
+| -------  | ----- |
+| Pub      | 27500 |
+| Duel     | 27501 |
+| Clan     | 27502 |
+| Quad     | 27503 |
+| Trick    | 27504 |
+| No Bunny | 27505 |
+| Staging  | 27510 |
+| QWfwd    | 30000 |
 
 ## Dependencies
 
@@ -81,6 +81,8 @@ docker-machine create \
 --amazonec2-open-port 27504 \
 --amazonec2-open-port 27505/udp \
 --amazonec2-open-port 27505 \
+--amazonec2-open-port 27510/udp \
+--amazonec2-open-port 27510 \
 --amazonec2-open-port 30000/udp \
 --amazonec2-open-port 28000 \
 tokyo
@@ -107,6 +109,8 @@ docker-machine create \
 --amazonec2-open-port 27504 \
 --amazonec2-open-port 27505/udp \
 --amazonec2-open-port 27505 \
+--amazonec2-open-port 27510/udp \
+--amazonec2-open-port 27510 \
 --amazonec2-open-port 30000/udp \
 --amazonec2-open-port 28000 \
 stockholm
@@ -133,6 +137,8 @@ docker-machine create \
 --amazonec2-open-port 27504 \
 --amazonec2-open-port 27505/udp \
 --amazonec2-open-port 27505 \
+--amazonec2-open-port 27510/udp \
+--amazonec2-open-port 27510 \
 --amazonec2-open-port 30000/udp \
 --amazonec2-open-port 28000 \
 california
