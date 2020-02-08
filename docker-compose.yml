@@ -131,6 +131,28 @@ services:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
       - pub-demos:/fortressonesv/fortress/demos/
+  pubnobhserver:
+    image: fortressone/fortressonesv:latest
+    depends_on:
+      - updater
+    stdin_open: true
+    tty: true
+    restart: always
+    command: |
+      -ip ${FO_IP}
+      +set hostname "${FO_HOSTNAME} No Bunny Pub"
+      +set rcon_password "${FO_RCON_PASSWORD}"
+      +localinfo adminpwd "${FO_ADMINPWD}"
+      +exec fo_pubmode.cfg
+      +set pm_bunnyspeedcap 1
+      +map se2
+    ports:
+      - "27505:27500/udp"
+      - "27505:27500"
+    volumes:
+      - assets:/fortressonesv/fortress/assets/
+      - master_dats:/fortressonesv/fortress/dats/
+      - pub-demos:/fortressonesv/fortress/demos/
   stagingserver:
     image: fortressone/fortressonesv:latest
     depends_on:
@@ -146,8 +168,8 @@ services:
       +exec fo_stagingmode.cfg
       +map 2fort5r
     ports:
-      - "27505:27500/udp"
-      - "27505:27500"
+      - "27510:27500/udp"
+      - "27510:27500"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
