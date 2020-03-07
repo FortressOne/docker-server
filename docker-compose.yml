@@ -32,14 +32,13 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
+      -port 27500
       +set hostname "${FO_HOSTNAME} Pub"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +map se2
-    ports:
-      - "27500:27500/udp"
-      - "27500:27500"
+    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -53,14 +52,13 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
+      -port 27501
       +set hostname "${FO_HOSTNAME} Duel"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_duelmode.cfg
       +map 1on1r
-    ports:
-      - "27501:27500/udp"
-      - "27501:27500"
+    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -74,15 +72,14 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
+      -port 27502
       +set hostname "${FO_HOSTNAME} Clan"
       +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_clanmode.cfg
       +map 2fort5r
-    ports:
-      - "27502:27500/udp"
-      - "27502:27500"
+    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -96,15 +93,14 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
+      -port 27503
       +set hostname "${FO_HOSTNAME} Quad"
       +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_quadmode.cfg
       +map 2fort5r
-    ports:
-      - "27503:27500/udp"
-      - "27503:27500"
+    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -118,15 +114,14 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
+      -port 27504
       +set hostname "${FO_HOSTNAME} Trick"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +sv_cheats 1
       +map rj101_b3
-    ports:
-      - "27504:27500/udp"
-      - "27504:27500"
+    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -140,15 +135,14 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
+      -port 27505
       +set hostname "${FO_HOSTNAME} No Bunny Pub"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +set pm_bunnyspeedcap 1
       +map se2
-    ports:
-      - "27505:27500/udp"
-      - "27505:27500"
+    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -162,14 +156,13 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
+      -port 27510
       +set hostname "${FO_HOSTNAME} Staging"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_stagingmode.cfg
       +map 2fort5r
-    ports:
-      - "27510:27500/udp"
-      - "27510:27500"
+    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
@@ -180,8 +173,7 @@ services:
     tty: true
     restart: always
     command: +set hostname "${FO_HOSTNAME} QWfwd"
-    ports:
-      - "30000:30000/udp"
+    network_mode: "host"
 volumes:
   pub-demos:
   duel-demos:
