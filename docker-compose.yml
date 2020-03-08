@@ -36,7 +36,7 @@ services:
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
-      +map se2
+      +map 2fort5r
     ports:
       - "27500:27500/udp"
       - "27500:27500"
@@ -145,7 +145,7 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +set pm_bunnyspeedcap 1
-      +map se2
+      +map 2fort5r
     ports:
       - "27505:27500/udp"
       - "27505:27500"
