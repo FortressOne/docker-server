@@ -37,7 +37,7 @@ services:
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
-      +map se2
+      +map 2fort5r
     network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
@@ -141,7 +141,7 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +set pm_bunnyspeedcap 1
-      +map se2
+      +map 2fort5r
     network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
