@@ -167,6 +167,19 @@ services:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
       - staging-demos:/fortressonesv/fortress/demos/
+  dmserver:
+    image: niclaslindstedt/nquakesv:latest
+    stdin_open: true
+    tty: true
+    restart: always
+    environment:
+      - HOSTNAME="${FO_HOSTNAME} KTX"
+      - PORT=27600
+      - SERVER_ADMIN="zel@fortressone.org"
+      - RCON_PASSWORD=${FO_RCON_PASSWORD}
+      - SERVER_IP=${FO_IP}
+    network_mode: "host"
+    command: +set hostname "${FO_HOSTNAME} QWfwd"
   qwfwd:
     image: fortressone/qwfwd:latest
     stdin_open: true
