@@ -173,9 +173,9 @@ services:
     tty: true
     restart: always
     environment:
-      - HOSTNAME="${FO_HOSTNAME} KTX"
+      - HOSTNAME=${FO_HOSTNAME} KTX
       - PORT=27600
-      - SERVER_ADMIN="zel@fortressone.org"
+      - SERVER_ADMIN=zel@fortressone.org
       - RCON_PASSWORD=${FO_RCON_PASSWORD}
       - SERVER_IP=${FO_IP}
     network_mode: "host"
