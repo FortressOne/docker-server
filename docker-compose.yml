@@ -179,6 +179,7 @@ services:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
       - staging-demos:/fortressonesv/fortress/demos/
+      - staging-stats:/fortressonesv/fortress/data/
   dmserver:
     image: niclaslindstedt/nquakesv:latest
     stdin_open: true
