@@ -1,6 +1,6 @@
 # FortressOne Server Suite
 
-Runs automatically updated FortressOne FTE QuakeWorld servers, QuakeTV and a QWfwd proxy.
+Runs seven automatically updated FortressOne FTE QuakeWorld servers in different modes, two bonus KTX mvdsv servers and QWfwd proxy.
 
 | Mode     | Port  |
 | -------  | ----- |
@@ -11,6 +11,8 @@ Runs automatically updated FortressOne FTE QuakeWorld servers, QuakeTV and a QWf
 | Trick    | 27504 |
 | No Bunny | 27505 |
 | Staging  | 27510 |
+| KTX DM   | 27600 |
+| KTX Race | 27601 |
 | QWfwd    | 30000 |
 
 ## Dependencies
@@ -83,6 +85,8 @@ docker-machine create \
 --amazonec2-open-port 27505 \
 --amazonec2-open-port 27510/udp \
 --amazonec2-open-port 27510 \
+--amazonec2-open-port 27600/udp \
+--amazonec2-open-port 27600 \
 --amazonec2-open-port 30000/udp \
 --amazonec2-open-port 28000 \
 tokyo
@@ -111,6 +115,8 @@ docker-machine create \
 --amazonec2-open-port 27505 \
 --amazonec2-open-port 27510/udp \
 --amazonec2-open-port 27510 \
+--amazonec2-open-port 27600/udp \
+--amazonec2-open-port 27600 \
 --amazonec2-open-port 30000/udp \
 --amazonec2-open-port 28000 \
 stockholm
@@ -139,6 +145,8 @@ docker-machine create \
 --amazonec2-open-port 27505 \
 --amazonec2-open-port 27510/udp \
 --amazonec2-open-port 27510 \
+--amazonec2-open-port 27600/udp \
+--amazonec2-open-port 27600 \
 --amazonec2-open-port 30000/udp \
 --amazonec2-open-port 28000 \
 california
@@ -173,6 +181,34 @@ docker-compose restart
 ```
 
 
+## Opening ports on AWS
+
+I had to open port 27600 recently. With correctly configured: ~/.aws/config and ~/.aws/credentials (on Zoho), ports opened with AWS CLI using the following script:
+
+```sh
+#!/bin/bash
+
+aws_profiles=( california saopaulo stockholm sydney tokyo virginia )
+
+for p in "${aws_profiles[@]}"
+do
+  echo "${p}"
+  aws ec2 authorize-security-group-ingress \
+      --profile "${p}" \
+      --group-name docker-machine \
+      --protocol udp \
+      --port 27600 \
+      --cidr 0.0.0.0/0
+  aws ec2 authorize-security-group-ingress \
+      --profile "${p}" \
+      --group-name docker-machine \
+      --protocol tcp \
+      --port 27600 \
+      --cidr 0.0.0.0/0
+done
+```
+
+
 ## To Do
 
 - [x] auto update maps
@@ -181,4 +217,6 @@ docker-compose restart
 - [x] autorecord and mvd file server
 - [x] QTV
 - [x] QWFWD
+- [x] KTX
+- [x] race
 - [ ] stats
