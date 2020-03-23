@@ -1,6 +1,6 @@
 # FortressOne Server Suite
 
-Runs automatically updated FortressOne FTE QuakeWorld servers, a bonus KTX mvdsv server and QWfwd proxy.
+Runs seven automatically updated FortressOne FTE QuakeWorld servers in different modes, two bonus KTX mvdsv servers and QWfwd proxy.
 
 | Mode     | Port  |
 | -------  | ----- |
@@ -11,7 +11,8 @@ Runs automatically updated FortressOne FTE QuakeWorld servers, a bonus KTX mvdsv
 | Trick    | 27504 |
 | No Bunny | 27505 |
 | Staging  | 27510 |
-| KTX      | 27600 |
+| KTX DM   | 27600 |
+| KTX Race | 27601 |
 | QWfwd    | 30000 |
 
 ## Dependencies
@@ -217,4 +218,5 @@ done
 - [x] QTV
 - [x] QWFWD
 - [x] KTX
+- [x] race
 - [ ] stats
