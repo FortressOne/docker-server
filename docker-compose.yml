@@ -1,10 +1,6 @@
 ---
 version: "3.7"
 services:
-  map-repo:
-    image: fortressone/map-repo:latest
-    volumes:
-      - assets:/map-repo/fortress/
   pubserver:
     image: fortressone/fortressonesv:latest
     stdin_open: true
@@ -21,7 +17,9 @@ services:
     ports:
       - "27500:27500/udp"
     volumes:
-      - ./volumes/dats:/fortressonesv/fortress/dats/
-      - assets:/fortressonesv/fortress/assets/
-volumes:
-  assets:
+      - type: bind
+        source: ${DEV_DATS_PATH}
+        target: /fortressonesv/fortress/dats/
+      - type: bind
+        source: ${DEV_ASSETS_PATH}
+        target: /fortressonesv/fortress/assets/
