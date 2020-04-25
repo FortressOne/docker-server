@@ -52,6 +52,9 @@ docker ps
 docker attach <container>
 ```
 
+`ctrl-p` `ctrl-q` to detach.
+
+
 ### Stop
 
 ```sh
