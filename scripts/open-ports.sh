@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 aws_profiles=( california saopaulo stockholm sydney tokyo virginia )
 
