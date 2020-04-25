@@ -1,0 +1,26 @@
+---
+version: "3.7"
+services:
+  map-repo:
+    image: fortressone/map-repo:latest
+    volumes:
+      - assets:/map-repo/fortress/
+  pubserver:
+    image: fortressone/fortressonesv:latest
+    stdin_open: true
+    tty: true
+    command: |
+      -ip ${FO_IP}
+      -port 27500
+      +set hostname "${FO_HOSTNAME} Pub"
+      +set rcon_password "${FO_RCON_PASSWORD}"
+      +localinfo adminpwd "${FO_ADMINPWD}"
+      +exec fo_pubmode.cfg
+      +map 2fort5r
+    ports:
+      - "27500:27500/udp"
+    volumes:
+      - ./volumes/dats:/fortressonesv/fortress/dats/
+      - assets:/fortressonesv/fortress/assets/
+volumes:
+  assets:
