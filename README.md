@@ -13,7 +13,7 @@ Runs a single FortressOne server on port 27500.
 
 ### Configuration
 
-- Edit `.env.example` and save it as `.env`.
+Edit `.env.example` and save it as `.env`.
 
 
 ### Usage
@@ -52,7 +52,7 @@ Runs seven automatically updated FortressOne FTE QuakeWorld servers in different
 
 ### Configuration
 
-- Edit `.env.example` and save it as `.env.production`.
+Edit `production.env.example` and save it as `production.env`.
 
 
 ### Usage
@@ -60,7 +60,7 @@ Runs seven automatically updated FortressOne FTE QuakeWorld servers in different
 #### Start server
 
 ```sh
-source .env.production && docker-compose up -f production.yml -d
+FO_PROD_ENV_FILE=production.env && docker-compose up -f production.yml -d
 ```
 
 
@@ -90,26 +90,7 @@ docker attach <container>
 #### Stop
 
 ```sh
-docker-compose down
-```
-
-
-## Record and upload demos to [QWTF Demo Archive](https://demos.fortressone.org)
-
-Add the following confiuration to your .env.production file. Note these are
-dummy values, ask in [FortressOne Discord](https://discord.fortressone.org) for
-credentials.
-
-```
-S3_AWS_ACCESS_KEY_ID=ASDASJKDAJSKDJAKSJDA
-S3_AWS_SECRET_ACCESS_KEY=aADsdalkjdsaDSadsajdlkaDASdsakdjsaldADsa
-S3_URI=s3://fortressone-demos/timbuktu/
-```
-
-Then restart the app
-
-```
-docker-compose -f production.yml restart
+FO_PROD_ENV_FILE=production.env docker-compose down
 ```
 
 
