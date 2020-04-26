@@ -14,8 +14,8 @@ Runs a single FortressOne server on port 27500.
 ### Configuration
 
 Locally clone:
-  - [FortressOne map-repo](https://github.com/FortressOne/map-repo)
-  - [FortressOne server-qwprogs](https://github.com/FortressOne/server-qwprogs)
+  - [map-repo](https://github.com/FortressOne/map-repo)
+  - [server-qwprogs](https://github.com/FortressOne/server-qwprogs)
 
 Edit `.env.example` and save it as `.env`.
 
