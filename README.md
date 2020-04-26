@@ -52,15 +52,22 @@ Runs seven automatically updated FortressOne FTE QuakeWorld servers in different
 
 ### Configuration
 
-Edit `production.env.example` and save it as `production.env`.
+Edit `.env.production_example` and save it as `.env.production`.
 
 
 ### Usage
 
+Before executing commands you must source the production environment file:
+
+```sh
+source .env.production
+```
+
+
 #### Start server
 
 ```sh
-FO_PROD_ENV_FILE=production.env && docker-compose up -f production.yml -d
+docker-compose up -f production.yml -d
 ```
 
 
@@ -90,7 +97,7 @@ docker attach <container>
 #### Stop
 
 ```sh
-FO_PROD_ENV_FILE=production.env docker-compose down
+docker-compose down
 ```
 
 
