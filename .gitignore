@@ -1,5 +1,3 @@
 *.env*
 !.env.example
-!production.env.example
-deploy*.sh
-restart*.sh
+!.env.production_example
