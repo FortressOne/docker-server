@@ -16,7 +16,7 @@ source_docker_machine_env () {
 source_docker_compose_env () {
   local source_file=".env.${1}"
   source ${source_file}
-  echo "Sourcing .env.${source_file}"
+  echo "Sourcing ${source_file}"
 }
 
 restart_docker_compose () {
