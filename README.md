@@ -21,7 +21,14 @@ Edit `.env.example` and save it as `.env`.
 #### Start server
 
 ```sh
-docker-compose up
+docker-compose up -d
+```
+
+
+#### Attach to container
+
+```sh
+docker attach <container name>
 ```
 
 
