@@ -41,6 +41,8 @@ docker-compose logs -f
 docker attach <container name>
 ```
 
+`ctrl-p` `ctrl-q` to detach.
+
 
 #### Stop server
 
