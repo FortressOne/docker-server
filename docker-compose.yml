@@ -7,7 +7,6 @@ services:
     tty: true
     command: |
       -ip "${FO_IP}"
-      -port "${FO_PORT}"
       +set hostname "${FO_HOSTNAME}"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
