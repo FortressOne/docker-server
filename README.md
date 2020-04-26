@@ -2,8 +2,8 @@
 
 ## Dependencies
 
-Install [Docker Engine](https://docs.docker.com/compose/install/) and
-[Docker Compose](https://docs.docker.com/compose/install/).
+- [Docker Engine](https://docs.docker.com/compose/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 
 ## Development
@@ -12,6 +12,10 @@ Runs a single FortressOne server on port 27500.
 
 
 ### Configuration
+
+Locally clone:
+  - [FortressOne map-repo](https://github.com/FortressOne/map-repo)
+  - [FortressOne server-qwprogs](https://github.com/FortressOne/server-qwprogs)
 
 Edit `.env.example` and save it as `.env`.
 
