@@ -10,8 +10,11 @@ services:
     restart: always
     depends_on:
       - map-repo
-    env_file:
-      - "${FO_PROD_ENV_FILE}"
+    environment:
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_ACCESS_KEY_ID
+      - S3_DEMO_URI
+      - S3_STATS_URI
     volumes:
       - assets:/updater/map-repo/fortress/
       - master_dats:/updater/dats/master/
@@ -30,8 +33,6 @@ services:
     image: fortressone/fortressonesv:latest
     depends_on:
       - updater
-    env_file:
-      - "${FO_PROD_ENV_FILE}"
     stdin_open: true
     tty: true
     restart: always
@@ -53,8 +54,6 @@ services:
     image: fortressone/fortressonesv:latest
     depends_on:
       - updater
-    env_file:
-      - "${FO_PROD_ENV_FILE}"
     stdin_open: true
     tty: true
     restart: always
@@ -76,8 +75,6 @@ services:
     image: fortressone/fortressonesv:latest
     depends_on:
       - updater
-    env_file:
-      - "${FO_PROD_ENV_FILE}"
     stdin_open: true
     tty: true
     restart: always
@@ -100,8 +97,6 @@ services:
     image: fortressone/fortressonesv:latest
     depends_on:
       - updater
-    env_file:
-      - "${FO_PROD_ENV_FILE}"
     stdin_open: true
     tty: true
     restart: always
@@ -124,8 +119,6 @@ services:
     image: fortressone/fortressonesv:latest
     depends_on:
       - updater
-    env_file:
-      - "${FO_PROD_ENV_FILE}"
     stdin_open: true
     tty: true
     restart: always
@@ -148,8 +141,6 @@ services:
     image: fortressone/fortressonesv:latest
     depends_on:
       - updater
-    env_file:
-      - "${FO_PROD_ENV_FILE}"
     stdin_open: true
     tty: true
     restart: always
@@ -172,8 +163,6 @@ services:
     image: fortressone/fortressonesv:latest
     depends_on:
       - updater
-    env_file:
-      - "${FO_PROD_ENV_FILE}"
     stdin_open: true
     tty: true
     restart: always
