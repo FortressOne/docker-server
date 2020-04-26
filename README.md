@@ -25,6 +25,13 @@ docker-compose up -d
 ```
 
 
+#### Tail logs
+
+```sh
+docker-compose logs -f
+```
+
+
 #### Attach to container
 
 ```sh
@@ -81,7 +88,7 @@ docker-compose up -f production.yml -d
 #### Tail logs
 
 ```sh
-docker-compose logs -f
+docker-compose -f production.yml logs -f
 ```
 
 
@@ -104,7 +111,7 @@ docker attach <container>
 #### Stop
 
 ```sh
-docker-compose down
+docker-compose -f production.yml down
 ```
 
 
