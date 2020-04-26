@@ -253,7 +253,7 @@ done
 - [x] auto update qwprogs
 - [x] sane default config
 - [x] autorecord and mvd file server
-- [x] QTV
+- [ ] QTV
 - [x] QWFWD
 - [x] KTX
 - [x] race
