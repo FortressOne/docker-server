@@ -209,7 +209,9 @@ services:
     stdin_open: true
     tty: true
     restart: always
-    command: +hostname "${FO_HOSTNAME} QWfwd"
+    command: |
+      30000 0.0.0.0
+      +set hostname "${FO_HOSTNAME} QWfwd"
     network_mode: "host"
 volumes:
   pub-demos:
