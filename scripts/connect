@@ -1,18 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-set -u
-
-source_docker_machine_env () {
-  eval "$(docker-machine env "${1}")"
-  echo Active docker machine: "$(docker-machine active)"
-}
-
-source_docker_compose_env () {
-  local source_file=".env.${1}"
-  source ./${source_file}
-  echo "Sourcing ${source_file}"
-}
-
-source_docker_machine_env ${1}
-source_docker_compose_env ${1}
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+eval "$($DIR/env ${1})"
+echo "Active docker-machine: $(docker-machine active)"

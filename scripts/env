@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cat ".env.${1}"
+echo "$(docker-machine env "${1}")"
