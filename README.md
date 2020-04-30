@@ -224,7 +224,9 @@ docker-machine create \
 ```
 
 
-## Opening ports on AWS
+## Scripts
+
+### Opening ports on AWS
 
 I had to open port 27600 recently. With correctly configured: ~/.aws/config and ~/.aws/credentials (on Zoho), ports opened with AWS CLI using the following script:
 
@@ -249,6 +251,15 @@ aws ec2 authorize-security-group-ingress \
     --port 27600 \
     --cidr 0.0.0.0/0
 done
+```
+
+
+### Set up environment for docker-machine
+
+Requires a `.env.<docker-machine name>` file with FO environment variables set.
+
+```sh
+source scripts/connect <docker-machine name>
 ```
 
 
