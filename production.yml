@@ -130,7 +130,7 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +sv_cheats 1
-      +map rj101_b3
+      +map rj101
     network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
