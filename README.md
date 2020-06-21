@@ -124,7 +124,14 @@ docker-compose -f production.yml down
 
 Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/).
 
-E.G. I used this for Tokyo AWS:
+
+### AWS
+
+- Create an IAM user with admin access
+- Run a docker create
+- Update cloudflare to point to newly created EC2 instance
+
+E.G. I used this for Tokyo:
 ```
 docker-machine create \
   --driver amazonec2 \
@@ -148,6 +155,8 @@ docker-machine create \
   --amazonec2-open-port 27510 \
   --amazonec2-open-port 27600/udp \
   --amazonec2-open-port 27600 \
+  --amazonec2-open-port 27601/udp \
+  --amazonec2-open-port 27601 \
   --amazonec2-open-port 30000/udp \
   --amazonec2-open-port 28000 \
   tokyo
@@ -178,6 +187,8 @@ docker-machine create \
   --amazonec2-open-port 27510 \
   --amazonec2-open-port 27600/udp \
   --amazonec2-open-port 27600 \
+  --amazonec2-open-port 27601/udp \
+  --amazonec2-open-port 27601 \
   --amazonec2-open-port 30000/udp \
   --amazonec2-open-port 28000 \
   stockholm
@@ -208,6 +219,8 @@ docker-machine create \
   --amazonec2-open-port 27510 \
   --amazonec2-open-port 27600/udp \
   --amazonec2-open-port 27600 \
+  --amazonec2-open-port 27601/udp \
+  --amazonec2-open-port 27601 \
   --amazonec2-open-port 30000/udp \
   --amazonec2-open-port 28000 \
   california
