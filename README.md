@@ -120,6 +120,13 @@ docker-compose -f production.yml down
 ```
 
 
+## Force run updater
+
+```sh
+docker exec -it <container> /updater/sync.sh
+```
+
+
 ## Create a new server instance in the cloud
 
 Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/).
