@@ -86,7 +86,7 @@ source .env.production
 #### Start server
 
 ```sh
-docker-compose up -f production.yml -d
+docker-compose -f production.yml up -d
 ```
 
 
