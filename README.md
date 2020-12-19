@@ -123,7 +123,7 @@ docker-compose -f production.yml down
 ## Force run updater
 
 ```sh
-docker exec -it <container> /updater/sync.sh
+docker run fortressone/updater
 ```
 
 
@@ -138,6 +138,9 @@ Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/
 - Run `docker-machine create` with arguments as in the examples below, or
   create an EC2 instance and open up ports 27500-27505, 27510, 27600, 27601 on
   udp and tcp
+- Edit `.env.production` and source
+- Run `docker-machine active` to confirm connection
+- Run `docker run fortressone/updater` to update progs
 - Update cloudflare to point to newly created EC2 instance
 
 E.G. I used this for Tokyo:
