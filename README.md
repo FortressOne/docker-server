@@ -135,7 +135,9 @@ Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/
 ### AWS
 
 - Create an IAM user with admin access
-- Run a docker create
+- Run `docker-machine create` with arguments as in the examples below, or
+  create an EC2 instance and open up ports 27500-27505, 27510, 27600, 27601 on
+  udp and tcp
 - Update cloudflare to point to newly created EC2 instance
 
 E.G. I used this for Tokyo:
@@ -199,38 +201,6 @@ docker-machine create \
   --amazonec2-open-port 30000/udp \
   --amazonec2-open-port 28000 \
   stockholm
-```
-
-This for California (where zone a isn't available):
-```
-docker-machine create \
-  --driver amazonec2 \
-  --amazonec2-access-key <AWS_ACCESS_KEY> \
-  --amazonec2-secret-key <AWS_SECRET_KEY> \
-  --amazonec2-root-size 30 \
-  --amazonec2-region us-west-1 \
-  --amazonec2-zone b \
-  --amazonec2-open-port 27500/udp \
-  --amazonec2-open-port 27500 \
-  --amazonec2-open-port 27501/udp \
-  --amazonec2-open-port 27501 \
-  --amazonec2-open-port 27502/udp \
-  --amazonec2-open-port 27502 \
-  --amazonec2-open-port 27503/udp \
-  --amazonec2-open-port 27503 \
-  --amazonec2-open-port 27504/udp \
-  --amazonec2-open-port 27504 \
-  --amazonec2-open-port 27505/udp \
-  --amazonec2-open-port 27505 \
-  --amazonec2-open-port 27510/udp \
-  --amazonec2-open-port 27510 \
-  --amazonec2-open-port 27600/udp \
-  --amazonec2-open-port 27600 \
-  --amazonec2-open-port 27601/udp \
-  --amazonec2-open-port 27601 \
-  --amazonec2-open-port 30000/udp \
-  --amazonec2-open-port 28000 \
-  california
 ```
 
 I used this for Dallas Linode:
