@@ -65,8 +65,6 @@ different modes and QWfwd proxy.
 | Trick    | 27504 |
 | No Bunny | 27505 |
 | Staging  | 27510 |
-| KTX DM   | 27600 |
-| KTX Race | 27601 |
 | QWfwd    | 30000 |
 
 
@@ -137,7 +135,7 @@ Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/
 
 - Create an IAM user with admin access
 - Run `docker-machine create` with arguments as in the examples below, or
-  create an EC2 instance and open up ports 27500-27505, 27510, 27600, 27601 on
+  create an EC2 instance and open up ports 27500-27505, 27510 on
   udp and tcp
 - Edit `.env.production` and source
 - Run `docker-machine active` to confirm connection
@@ -166,10 +164,6 @@ docker-machine create \
   --amazonec2-open-port 27505 \
   --amazonec2-open-port 27510/udp \
   --amazonec2-open-port 27510 \
-  --amazonec2-open-port 27600/udp \
-  --amazonec2-open-port 27600 \
-  --amazonec2-open-port 27601/udp \
-  --amazonec2-open-port 27601 \
   --amazonec2-open-port 30000/udp \
   --amazonec2-open-port 28000 \
   tokyo
@@ -198,10 +192,6 @@ docker-machine create \
   --amazonec2-open-port 27505 \
   --amazonec2-open-port 27510/udp \
   --amazonec2-open-port 27510 \
-  --amazonec2-open-port 27600/udp \
-  --amazonec2-open-port 27600 \
-  --amazonec2-open-port 27601/udp \
-  --amazonec2-open-port 27601 \
   --amazonec2-open-port 30000/udp \
   --amazonec2-open-port 28000 \
   stockholm
@@ -266,3 +256,30 @@ source scripts/connect <docker-machine name>
 - [ ] QTV
 - [x] QWFWD
 - [ ] stats
+
+
+### Renew AWS after 1 year free period
+
+E.G. for 2021 Virginia I did:
+- Create new AWS account
+- email: zel+virginia2021@fortressone.org
+- password: xxxx
+- AWS account name: fortressone-virginia2021
+- Company name: FortressOne Team
+- Credit card: FortressOne Team credit card
+- Basic plan
+- Set reminder for a year to renew again :P
+- AIM > Add user
+  - name: admin
+  - access type: Programmatic access
+- Create group
+  - Group name: admin
+  - Tick AdministratorAccess
+- Save credentials
+- Delete old instance: `docker-machine rm virginia`
+- Run `docker-machine create` command from above, with new credentials, region and name
+- Update DNS with new IP at cloudflare
+- .env file shouldn't change (credentials in env file are for storage).
+- `source .env.virginia; eval $(docker-machine env virginia)`
+- `docker-compose -f production.yml up -d`
+- Close old account in My Account
