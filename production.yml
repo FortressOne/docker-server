@@ -180,30 +180,6 @@ services:
       - staging_dats:/fortressonesv/fortress/dats/
       - staging-demos:/fortressonesv/fortress/demos/
       - staging-stats:/fortressonesv/fortress/data/
-  dmserver:
-    image: niclaslindstedt/nquakesv:latest
-    stdin_open: true
-    tty: true
-    restart: always
-    environment:
-      - HOSTNAME=${FO_HOSTNAME} KTX
-      - PORT=27600
-      - SERVER_ADMIN=zel@fortressone.org
-      - RCON_PASSWORD=${FO_RCON_PASSWORD}
-      - SERVER_IP=${FO_IP}
-    network_mode: "host"
-  raceserver:
-    image: fortressone/nquakesv-race:latest
-    stdin_open: true
-    tty: true
-    restart: always
-    environment:
-      - HOSTNAME=${FO_HOSTNAME} KTX Race
-      - PORT=27601
-      - SERVER_ADMIN=zel@fortressone.org
-      - RCON_PASSWORD=${FO_RCON_PASSWORD}
-      - SERVER_IP=${FO_IP}
-    network_mode: "host"
   qwfwd:
     image: fortressone/qwfwd:latest
     stdin_open: true
