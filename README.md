@@ -53,7 +53,8 @@ docker-compose down
 
 ## Production
 
-Runs seven automatically updated FortressOne FTE QuakeWorld servers in different modes, two bonus KTX mvdsv servers and QWfwd proxy.
+Runs seven automatically updated FortressOne FTE QuakeWorld servers in
+different modes and QWfwd proxy.
 
 | Mode     | Port  |
 | -------  | ----- |
@@ -264,6 +265,4 @@ source scripts/connect <docker-machine name>
 - [x] autorecord and mvd file server
 - [ ] QTV
 - [x] QWFWD
-- [x] KTX
-- [x] race
 - [ ] stats
