@@ -36,7 +36,7 @@ do
   )
 done
 
-linode_machines=( dallas6 )
+linode_machines=( dallas )
 
 for m in "${linode_machines[@]}"
 do
