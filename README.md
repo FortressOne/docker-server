@@ -207,6 +207,14 @@ docker-machine create \
   dallas
 ```
 
+N.B. On linode if you get:
+
+```
+Error creating machine: Error running provisioning: Unable to verify the Docker daemon is listening: Maximum number of retries (10) exceeded
+```
+
+Just restart the VPS and it should work after that.
+
 
 ## Scripts
 
