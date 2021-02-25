@@ -122,7 +122,7 @@ docker-compose -f production.yml down
 ## Force run updater
 
 ```sh
-docker run fortressone/updater
+docker exec -it docker-server_updater_1 /updater/sync.sh
 ```
 
 

@@ -31,6 +31,9 @@ services:
       - staging-stats:/updater/stats/staging/
   pubserver:
     image: fortressone/fortressonesv:latest
+    ports:
+      - "27500:27500/udp"
+      - "27500:27500"
     depends_on:
       - updater
     stdin_open: true
@@ -44,7 +47,6 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +map 2fort5r
-    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -52,6 +54,9 @@ services:
       - pub-stats:/fortressonesv/fortress/data/
   duelserver:
     image: fortressone/fortressonesv:latest
+    ports:
+      - "27501:27501/udp"
+      - "27501:27501"
     depends_on:
       - updater
     stdin_open: true
@@ -65,7 +70,6 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_duelmode.cfg
       +map 1on1r
-    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -73,6 +77,9 @@ services:
       - duel-stats:/fortressonesv/fortress/data/
   clanserver:
     image: fortressone/fortressonesv:latest
+    ports:
+      - "27502:27502/udp"
+      - "27502:27502"
     depends_on:
       - updater
     stdin_open: true
@@ -87,7 +94,6 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_clanmode.cfg
       +map 2fort5r
-    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -95,6 +101,9 @@ services:
       - clan-stats:/fortressonesv/fortress/data/
   quadserver:
     image: fortressone/fortressonesv:latest
+    ports:
+      - "27503:27503/udp"
+      - "27503:27503"
     depends_on:
       - updater
     stdin_open: true
@@ -109,7 +118,6 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_quadmode.cfg
       +map 2fort5r
-    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -117,6 +125,9 @@ services:
       - quad-stats:/fortressonesv/fortress/data/
   trickserver:
     image: fortressone/fortressonesv:latest
+    ports:
+      - "27504:27504/udp"
+      - "27504:27504"
     depends_on:
       - updater
     stdin_open: true
@@ -131,7 +142,6 @@ services:
       +exec fo_pubmode.cfg
       +sv_cheats 1
       +map rj101
-    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -139,6 +149,9 @@ services:
       - pub-stats:/fortressonesv/fortress/data/
   pubnobhserver:
     image: fortressone/fortressonesv:latest
+    ports:
+      - "27505:27505/udp"
+      - "27505:27505"
     depends_on:
       - updater
     stdin_open: true
@@ -153,7 +166,6 @@ services:
       +exec fo_pubmode.cfg
       +set pm_bunnyspeedcap 1
       +map 2fort5r
-    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - master_dats:/fortressonesv/fortress/dats/
@@ -161,6 +173,9 @@ services:
       - pub-stats:/fortressonesv/fortress/data/
   stagingserver:
     image: fortressone/fortressonesv:latest
+    ports:
+      - "27510:27510/udp"
+      - "27510:27510"
     depends_on:
       - updater
     stdin_open: true
@@ -174,7 +189,6 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_stagingmode.cfg
       +map 2fort5r
-    network_mode: "host"
     volumes:
       - assets:/fortressonesv/fortress/assets/
       - staging_dats:/fortressonesv/fortress/dats/
@@ -188,7 +202,6 @@ services:
     command: |
       30000 0.0.0.0
       +set hostname "${FO_HOSTNAME} QWfwd"
-    network_mode: "host"
 volumes:
   pub-demos:
   duel-demos:
