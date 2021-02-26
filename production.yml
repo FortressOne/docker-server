@@ -31,9 +31,7 @@ services:
       - staging-stats:/updater/stats/staging/
   pubserver:
     image: fortressone/fortressonesv:latest
-    ports:
-      - "27500:27500/udp"
-      - "27500:27500"
+    network_mode: host
     depends_on:
       - updater
     stdin_open: true
@@ -54,9 +52,7 @@ services:
       - pub-stats:/fortressonesv/fortress/data/
   duelserver:
     image: fortressone/fortressonesv:latest
-    ports:
-      - "27501:27501/udp"
-      - "27501:27501"
+    network_mode: host
     depends_on:
       - updater
     stdin_open: true
@@ -77,9 +73,7 @@ services:
       - duel-stats:/fortressonesv/fortress/data/
   clanserver:
     image: fortressone/fortressonesv:latest
-    ports:
-      - "27502:27502/udp"
-      - "27502:27502"
+    network_mode: host
     depends_on:
       - updater
     stdin_open: true
@@ -101,9 +95,7 @@ services:
       - clan-stats:/fortressonesv/fortress/data/
   quadserver:
     image: fortressone/fortressonesv:latest
-    ports:
-      - "27503:27503/udp"
-      - "27503:27503"
+    network_mode: host
     depends_on:
       - updater
     stdin_open: true
@@ -125,9 +117,7 @@ services:
       - quad-stats:/fortressonesv/fortress/data/
   trickserver:
     image: fortressone/fortressonesv:latest
-    ports:
-      - "27504:27504/udp"
-      - "27504:27504"
+    network_mode: host
     depends_on:
       - updater
     stdin_open: true
@@ -149,9 +139,7 @@ services:
       - pub-stats:/fortressonesv/fortress/data/
   pubnobhserver:
     image: fortressone/fortressonesv:latest
-    ports:
-      - "27505:27505/udp"
-      - "27505:27505"
+    network_mode: host
     depends_on:
       - updater
     stdin_open: true
@@ -173,9 +161,7 @@ services:
       - pub-stats:/fortressonesv/fortress/data/
   stagingserver:
     image: fortressone/fortressonesv:latest
-    ports:
-      - "27510:27510/udp"
-      - "27510:27510"
+    network_mode: host
     depends_on:
       - updater
     stdin_open: true
@@ -196,6 +182,7 @@ services:
       - staging-stats:/fortressonesv/fortress/data/
   qwfwd:
     image: fortressone/qwfwd:latest
+    network_mode: host
     stdin_open: true
     tty: true
     restart: always
