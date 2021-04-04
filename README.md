@@ -139,7 +139,7 @@ Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/
   udp and tcp
 - Edit `.env.production` and source
 - Run `docker-machine active` to confirm connection
-- Run `docker run fortressone/updater` to update progs
+- Run `docker exec -it docker-server_updater_1 /updater/sync.sh` to update progs
 - Update cloudflare to point to newly created EC2 instance
 
 E.G. I used this for Tokyo:
