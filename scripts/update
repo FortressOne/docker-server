@@ -29,7 +29,7 @@ aws_machines=( california saopaulo stockholm sydney tokyo virginia )
 
 for m in "${aws_machines[@]}"
 do
-  echo Deploying "${m}"
+  echo Updating "${m}"
   (
   source_aws_env "${m}"
   source_and_update "${m}"
@@ -40,7 +40,7 @@ linode_machines=( dallas )
 
 for m in "${linode_machines[@]}"
 do
-  echo Deploying "${m}"
+  echo Updating "${m}"
   (
   source_and_update "${m}"
   )
