@@ -21,4 +21,4 @@ services:
         target: /fortressonesv/fortress/dats/
       - type: bind
         source: "${FO_DEV_ASSETS_PATH}"
-        target: /fortressonesv/fortress/assets/
+        target: /fortressonesv/fortress/stow/fortress/
