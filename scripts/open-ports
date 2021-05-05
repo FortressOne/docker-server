@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-aws_profiles=( california saopaulo stockholm sydney tokyo virginia )
+aws_profiles=( california mumbai saopaulo stockholm sydney tokyo virginia )
 
 for p in "${aws_profiles[@]}"
 do
