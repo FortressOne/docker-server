@@ -25,7 +25,7 @@ source_and_update () {
   docker exec -it docker-server_updater_1 /updater/sync.sh
 }
 
-aws_machines=( california saopaulo stockholm sydney tokyo virginia )
+aws_machines=( california mumbai saopaulo stockholm sydney tokyo virginia )
 
 for m in "${aws_machines[@]}"
 do
