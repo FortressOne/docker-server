@@ -79,7 +79,7 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
-      -port 27503
+      -port 27502
       +set hostname "${FO_HOSTNAME} PUG"
       +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
@@ -101,7 +101,7 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
-      -port 27504
+      -port 27503
       +set hostname "${FO_HOSTNAME} Trick"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
