@@ -21,13 +21,11 @@ services:
       - staging_dats:/updater/dats/staging/
       - pub-demos:/updater/demos/pub/
       - duel-demos:/updater/demos/duel/
-      - clan-demos:/updater/demos/clan/
-      - quad-demos:/updater/demos/quad/
+      - pug-demos:/updater/demos/pug/
       - staging-demos:/updater/demos/staging/
       - pub-stats:/updater/stats/pub/
       - duel-stats:/updater/stats/duel/
-      - clan-stats:/updater/stats/clan/
-      - quad-stats:/updater/stats/quad/
+      - pug-stats:/updater/stats/pug/
       - staging-stats:/updater/stats/staging/
   pubserver:
     image: fortressone/fortressonesv:latest
@@ -71,7 +69,7 @@ services:
       - master_dats:/fortressonesv/fortress/dats/
       - duel-demos:/fortressonesv/fortress/demos/
       - duel-stats:/fortressonesv/fortress/data/
-  clanserver:
+  pugserver:
     image: fortressone/fortressonesv:latest
     network_mode: host
     depends_on:
@@ -82,29 +80,7 @@ services:
     command: |
       -ip ${FO_IP}
       -port 27502
-      +set hostname "${FO_HOSTNAME} Clan"
-      +set password "${FO_PASSWORD}"
-      +set rcon_password "${FO_RCON_PASSWORD}"
-      +localinfo adminpwd "${FO_ADMINPWD}"
-      +exec fo_clanmode.cfg
-      +map 2fort5r
-    volumes:
-      - assets:/fortressonesv/fortress/stow/fortress/
-      - master_dats:/fortressonesv/fortress/dats/
-      - clan-demos:/fortressonesv/fortress/demos/
-      - clan-stats:/fortressonesv/fortress/data/
-  quadserver:
-    image: fortressone/fortressonesv:latest
-    network_mode: host
-    depends_on:
-      - updater
-    stdin_open: true
-    tty: true
-    restart: always
-    command: |
-      -ip ${FO_IP}
-      -port 27503
-      +set hostname "${FO_HOSTNAME} Quad"
+      +set hostname "${FO_HOSTNAME} PUG"
       +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
@@ -113,8 +89,8 @@ services:
     volumes:
       - assets:/fortressonesv/fortress/stow/fortress/
       - master_dats:/fortressonesv/fortress/dats/
-      - quad-demos:/fortressonesv/fortress/demos/
-      - quad-stats:/fortressonesv/fortress/data/
+      - pug-demos:/fortressonesv/fortress/demos/
+      - pug-stats:/fortressonesv/fortress/data/
   trickserver:
     image: fortressone/fortressonesv:latest
     network_mode: host
@@ -125,35 +101,13 @@ services:
     restart: always
     command: |
       -ip ${FO_IP}
-      -port 27504
+      -port 27503
       +set hostname "${FO_HOSTNAME} Trick"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_pubmode.cfg
       +sv_cheats 1
       +map rj101
-    volumes:
-      - assets:/fortressonesv/fortress/stow/fortress/
-      - master_dats:/fortressonesv/fortress/dats/
-      - pub-demos:/fortressonesv/fortress/demos/
-      - pub-stats:/fortressonesv/fortress/data/
-  pubnobhserver:
-    image: fortressone/fortressonesv:latest
-    network_mode: host
-    depends_on:
-      - updater
-    stdin_open: true
-    tty: true
-    restart: always
-    command: |
-      -ip ${FO_IP}
-      -port 27505
-      +set hostname "${FO_HOSTNAME} No Bunny Pub"
-      +set rcon_password "${FO_RCON_PASSWORD}"
-      +localinfo adminpwd "${FO_ADMINPWD}"
-      +exec fo_pubmode.cfg
-      +set pm_bunnyspeedcap 1
-      +map 2fort5r
     volumes:
       - assets:/fortressonesv/fortress/stow/fortress/
       - master_dats:/fortressonesv/fortress/dats/
@@ -192,13 +146,11 @@ services:
 volumes:
   pub-demos:
   duel-demos:
-  clan-demos:
-  quad-demos:
+  pug-demos:
   staging-demos:
   pub-stats:
   duel-stats:
-  clan-stats:
-  quad-stats:
+  pug-stats:
   staging-stats:
   assets:
   master_dats:

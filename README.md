@@ -60,10 +60,8 @@ different modes and QWfwd proxy.
 | -------  | ----- |
 | Pub      | 27500 |
 | Duel     | 27501 |
-| Clan     | 27502 |
-| Quad     | 27503 |
-| Trick    | 27504 |
-| No Bunny | 27505 |
+| Pug      | 27502 |
+| Trick    | 27503 |
 | Staging  | 27510 |
 | QWfwd    | 30000 |
 
@@ -135,7 +133,7 @@ Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/
 
 - Create an IAM user with admin access
 - Run `docker-machine create` with arguments as in the examples below, or
-  create an EC2 instance and open up ports 27500-27505, 27510 on
+  create an EC2 instance and open up ports 27500-27503, 27510 on
   udp and tcp
 - Edit `.env.production` and source
 - Run `docker-machine active` to confirm connection
@@ -158,10 +156,6 @@ docker-machine create \
   --amazonec2-open-port 27502 \
   --amazonec2-open-port 27503/udp \
   --amazonec2-open-port 27503 \
-  --amazonec2-open-port 27504/udp \
-  --amazonec2-open-port 27504 \
-  --amazonec2-open-port 27505/udp \
-  --amazonec2-open-port 27505 \
   --amazonec2-open-port 27510/udp \
   --amazonec2-open-port 27510 \
   --amazonec2-open-port 30000/udp \
@@ -186,10 +180,6 @@ docker-machine create \
   --amazonec2-open-port 27502 \
   --amazonec2-open-port 27503/udp \
   --amazonec2-open-port 27503 \
-  --amazonec2-open-port 27504/udp \
-  --amazonec2-open-port 27504 \
-  --amazonec2-open-port 27505/udp \
-  --amazonec2-open-port 27505 \
   --amazonec2-open-port 27510/udp \
   --amazonec2-open-port 27510 \
   --amazonec2-open-port 30000/udp \
