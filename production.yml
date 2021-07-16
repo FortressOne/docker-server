@@ -1,15 +1,9 @@
 ---
 version: "3.7"
 services:
-  map-repo:
-    image: fortressone/map-repo:latest
-    volumes:
-      - assets:/map-repo/fortress/
   updater:
     image: fortressone/updater:latest
     restart: always
-    depends_on:
-      - map-repo
     environment:
       - AWS_SECRET_ACCESS_KEY
       - AWS_ACCESS_KEY_ID
