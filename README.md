@@ -198,6 +198,7 @@ docker-machine create \
 ```
 
 I used this for Dallas Linode:
+
 ```
 docker-machine create \
   --driver linode \
@@ -214,6 +215,21 @@ Error creating machine: Error running provisioning: Unable to verify the Docker 
 ```
 
 Just restart the VPS and it should work after that.
+
+
+For a generic server:
+- Create user with passwordless sudo access
+- Add public key to ~/.ssh/authorized_hosts
+
+I used this for guam:
+
+```
+docker-machine create \
+  --driver generic \
+  --generic-ip-address guam.fortressone.org \
+  --generic-ssh-user <HOST_USERNAME> \
+  guam
+```
 
 
 ## Scripts

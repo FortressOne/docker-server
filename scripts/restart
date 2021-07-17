@@ -36,9 +36,9 @@ do
   )
 done
 
-linode_machines=( dallas )
+other_machines=( dallas guam )
 
-for m in "${linode_machines[@]}"
+for m in "${other_machines[@]}"
 do
   echo Restarting "${m}"
   (
