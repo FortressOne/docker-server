@@ -15,12 +15,10 @@ services:
       - staging_dats:/updater/dats/staging/
       - pub-demos:/updater/demos/pub/
       - duel-demos:/updater/demos/duel/
-      - clan-demos:/updater/demos/clan/
       - quad-demos:/updater/demos/quad/
       - staging-demos:/updater/demos/staging/
       - pub-stats:/updater/stats/pub/
       - duel-stats:/updater/stats/duel/
-      - clan-stats:/updater/stats/clan/
       - quad-stats:/updater/stats/quad/
       - staging-stats:/updater/stats/staging/
   pubserver:
@@ -65,28 +63,6 @@ services:
       - master_dats:/fortressonesv/fortress/dats/
       - duel-demos:/fortressonesv/fortress/demos/
       - duel-stats:/fortressonesv/fortress/data/
-  clanserver:
-    image: fortressone/fortressonesv:latest
-    network_mode: host
-    depends_on:
-      - updater
-    stdin_open: true
-    tty: true
-    restart: always
-    command: |
-      -ip ${FO_IP}
-      -port 27502
-      +set hostname "${FO_HOSTNAME} Clan"
-      +set password "${FO_PASSWORD}"
-      +set rcon_password "${FO_RCON_PASSWORD}"
-      +localinfo adminpwd "${FO_ADMINPWD}"
-      +exec fo_clanmode.cfg
-      +map 2fort5r
-    volumes:
-      - assets:/fortressonesv/fortress/assets/
-      - master_dats:/fortressonesv/fortress/dats/
-      - clan-demos:/fortressonesv/fortress/demos/
-      - clan-stats:/fortressonesv/fortress/data/
   quadserver:
     image: fortressone/fortressonesv:latest
     network_mode: host
@@ -131,28 +107,6 @@ services:
       - master_dats:/fortressonesv/fortress/dats/
       - pub-demos:/fortressonesv/fortress/demos/
       - pub-stats:/fortressonesv/fortress/data/
-  pubnobhserver:
-    image: fortressone/fortressonesv:latest
-    network_mode: host
-    depends_on:
-      - updater
-    stdin_open: true
-    tty: true
-    restart: always
-    command: |
-      -ip ${FO_IP}
-      -port 27505
-      +set hostname "${FO_HOSTNAME} No Bunny Pub"
-      +set rcon_password "${FO_RCON_PASSWORD}"
-      +localinfo adminpwd "${FO_ADMINPWD}"
-      +exec fo_pubmode.cfg
-      +set pm_bunnyspeedcap 1
-      +map 2fort5r
-    volumes:
-      - assets:/fortressonesv/fortress/assets/
-      - master_dats:/fortressonesv/fortress/dats/
-      - pub-demos:/fortressonesv/fortress/demos/
-      - pub-stats:/fortressonesv/fortress/data/
   stagingserver:
     image: fortressone/fortressonesv:latest
     network_mode: host
@@ -186,12 +140,10 @@ services:
 volumes:
   pub-demos:
   duel-demos:
-  clan-demos:
   quad-demos:
   staging-demos:
   pub-stats:
   duel-stats:
-  clan-stats:
   quad-stats:
   staging-stats:
   assets:
