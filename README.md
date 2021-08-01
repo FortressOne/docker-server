@@ -163,11 +163,12 @@ docker-machine create \
   tokyo
 ```
 
-This for Stockholm (where default instance t2.micro isn't available):
+This for Stockholm, with non-default VPC and where t2.micro isn't available:
 ```
 docker-machine create \
   --driver amazonec2 \
   --amazonec2-instance-type t3.micro \
+  --amazonec2-vpc-id <VPC_ID> \
   --amazonec2-access-key <AWS_ACCESS_KEY> \
   --amazonec2-secret-key <AWS_SECRET_KEY> \
   --amazonec2-root-size 30 \
