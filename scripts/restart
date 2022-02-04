@@ -25,7 +25,7 @@ restart_docker_compose () {
   docker-compose -f production.yml restart
 }
 
-aws_machines=( california mumbai saopaulo stockholm sydney tokyo virginia )
+aws_machines=( california mumbai saopaulo stockholm ireland sydney tokyo virginia )
 
 for m in "${aws_machines[@]}"
 do

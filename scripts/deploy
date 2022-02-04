@@ -27,7 +27,7 @@ source_and_deploy () {
   docker-compose -f production.yml up -d
 }
 
-aws_machines=( california mumbai saopaulo stockholm sydney tokyo virginia )
+aws_machines=( california mumbai saopaulo stockholm ireland sydney tokyo virginia )
 
 for m in "${aws_machines[@]}"
 do
