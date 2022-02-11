@@ -21,6 +21,10 @@ services:
       - duel-stats:/updater/stats/duel/
       - quad-stats:/updater/stats/quad/
       - staging-stats:/updater/stats/staging/
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
   pubserver:
     image: fortressone/fortressonesv:latest
     network_mode: host
