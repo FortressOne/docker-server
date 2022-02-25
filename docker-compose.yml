@@ -11,6 +11,7 @@ services:
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +set sv_public 0
+      +set sv_cheats 1
       +exec fo_pubmode.cfg
       +map 2fort5r
     ports:
