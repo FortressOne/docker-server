@@ -7,25 +7,25 @@ DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 source "$DIR/shared"
 
-source_and_update () {
+print_stats () {
   source_docker_machine_env "${1}"
   source_docker_compose_env "${1}"
-  docker exec -it docker-server_updater_1 /updater/sync.sh
+  docker stats --no-stream
 }
 
 for m in "${aws_machines[@]}"
 do
-  echo Updating "${m}"
+  echo Stats for "${m}"
   (
   source_aws_env "${m}"
-  source_and_update "${m}"
+  print_stats "${m}"
   )
 done
 
 for m in "${other_machines[@]}"
 do
-  echo Updating "${m}"
+  echo Stats for "${m}"
   (
-  source_and_update "${m}"
+  print_stats "${m}"
   )
 done

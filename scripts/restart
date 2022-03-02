@@ -3,29 +3,15 @@
 set -e
 set -u
 
-source_aws_env () {
-  export AWS_PROFILE="${1}"
-  echo "AWS_PROFILE set to ${AWS_PROFILE}"
-}
-
-source_docker_machine_env () {
-  eval "$(docker-machine env "${1}")"
-  echo Active docker machine: "$(docker-machine active)"
-}
-
-source_docker_compose_env () {
-  local source_file=".env.${1}"
-  source ${source_file}
-  echo "Sourcing ${source_file}"
-}
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+source "$DIR/shared"
 
 restart_docker_compose () {
   source_docker_machine_env "${1}"
   source_docker_compose_env "${1}"
   docker-compose -f production.yml restart
 }
-
-aws_machines=( california mumbai saopaulo stockholm ireland sydney tokyo virginia )
 
 for m in "${aws_machines[@]}"
 do
@@ -35,8 +21,6 @@ do
   restart_docker_compose "${m}"
   )
 done
-
-other_machines=( dallas guam )
 
 for m in "${other_machines[@]}"
 do

@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-aws_profiles=( california mumbai saopaulo stockholm ireland sydney tokyo virginia )
+set -e
+set -u
+
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+source "$DIR/shared"
 
 for p in "${aws_profiles[@]}"
 do

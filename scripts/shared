@@ -1,0 +1,18 @@
+aws_machines=( california mumbai saopaulo stockholm ireland sydney tokyo virginia )
+other_machines=( dallas guam )
+
+source_aws_env () {
+  export AWS_PROFILE="${1}"
+  echo "AWS_PROFILE set to ${AWS_PROFILE}"
+}
+
+source_docker_machine_env () {
+  eval "$(docker-machine env "${1}")"
+  echo Active docker machine: "$(docker-machine active)"
+}
+
+source_docker_compose_env () {
+  local source_file=".env.${1}"
+  source ${source_file}
+  echo "Sourcing ${source_file}"
+}
