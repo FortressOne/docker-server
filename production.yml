@@ -103,7 +103,7 @@ services:
       +set hostname "${FO_HOSTNAME} Trick"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
-      +exec fo_pubmode.cfg
+      +exec fo_trickmode.cfg
       +sv_cheats 1
       +map rj101
     volumes:
