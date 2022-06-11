@@ -1,5 +1,5 @@
 aws_machines=( sydney california bahrain mumbai saopaulo stockholm ireland tokyo virginia )
-other_machines=( dallas guam )
+other_machines=( guam )
 
 source_aws_env () {
   export AWS_PROFILE="${1}"
