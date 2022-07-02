@@ -4,6 +4,7 @@
 
 - [Docker Engine](https://docs.docker.com/compose/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
+- Optionally GitLab's fork of the deprecated [Docker Machine](https://gitlab.com/gitlab-org/ci-cd/docker-machine)
 
 
 ## Development
