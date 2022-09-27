@@ -123,6 +123,7 @@ services:
       -ip ${FO_IP}
       -port 27510
       +set hostname "${FO_HOSTNAME} Staging"
+      +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +exec fo_stagingmode.cfg
