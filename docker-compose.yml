@@ -10,6 +10,7 @@ services:
       +set hostname "${FO_HOSTNAME}"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +localinfo adminpwd "${FO_ADMINPWD}"
+      +localinfo allowpracspawns 1
       +set sv_public 0
       +set sv_cheats 1
       +exec fo_pubmode.cfg
