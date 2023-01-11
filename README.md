@@ -137,7 +137,10 @@ Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/
   create an EC2 instance and open up ports 27500-27503, 27510 on
   udp and tcp
 - Edit `.env.production` and source
+- Run `eval $(docker-machine env <name>)`
 - Run `docker-machine active` to confirm connection
+- Run `docker-machine active` to confirm connection
+- Run `docker-compose -f production.yaml up -d && docker-compose -f prodction.yaml logs -tf` to start it up.
 - Run `docker exec -it docker-server_updater_1 /updater/sync.sh` to update progs
 - Update cloudflare to point to newly created EC2 instance
 
