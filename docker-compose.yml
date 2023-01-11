@@ -9,8 +9,11 @@ services:
       -ip "${FO_IP}"
       +set hostname "${FO_HOSTNAME}"
       +set rcon_password "${FO_RCON_PASSWORD}"
+      +set sv_serverip "${FO_IP}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo allowpracspawns 1
+      +localinfo discord_channel_id 813663438994669590
+      +localinfo backend_host "http://host.docker.internal:3000"
       +set sv_public 0
       +set sv_cheats 1
       +exec fo_pubmode.cfg
@@ -24,3 +27,5 @@ services:
       - type: bind
         source: "${FO_DEV_ASSETS_PATH}"
         target: /fortressonesv/fortress/assets/
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
