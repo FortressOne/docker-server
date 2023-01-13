@@ -41,6 +41,7 @@ services:
       +set sv_serverip "${FO_IP}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}pub/"
       +exec fo_pubmode.cfg
       +map 2fort5r
     volumes:
@@ -64,6 +65,7 @@ services:
       +set sv_serverip "${FO_IP}:27501"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}duel/"
       +exec fo_duelmode.cfg
       +map 1on1r
     volumes:
@@ -88,6 +90,7 @@ services:
       +set sv_serverip "${FO_IP}:27502"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}quad/"
       +exec fo_quadmode.cfg
       +map 2fort5r
     volumes:
@@ -111,6 +114,7 @@ services:
       +set sv_serverip "${FO_IP}:27503"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}trick/"
       +exec fo_trickmode.cfg
       +sv_cheats 1
       +map rj101
@@ -135,6 +139,7 @@ services:
       +set sv_serverip "${FO_IP}:27510"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}staging/"
       +exec fo_stagingmode.cfg
       +map 2fort5r
     volumes:

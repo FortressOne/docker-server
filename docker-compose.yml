@@ -13,7 +13,8 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo allowpracspawns 1
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
-      +localinfo backend_host "http://host.docker.internal:3000"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}"
+      +localinfo backend_address "http://host.docker.internal:3000"
       +set sv_public 0
       +set sv_cheats 1
       +exec fo_pubmode.cfg
