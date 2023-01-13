@@ -14,6 +14,7 @@ services:
       +localinfo allowpracspawns 1
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}"
       +localinfo backend_address "http://host.docker.internal:3000"
       +set sv_public 0
       +set sv_cheats 1
