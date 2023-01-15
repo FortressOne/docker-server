@@ -42,6 +42,7 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}pub/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}pub/"
       +exec fo_pubmode.cfg
       +map 2fort5r
     volumes:
@@ -66,6 +67,7 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}duel/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}duel/"
       +exec fo_duelmode.cfg
       +map 1on1r
     volumes:
@@ -91,6 +93,7 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}quad/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}quad/"
       +exec fo_quadmode.cfg
       +map 2fort5r
     volumes:
@@ -115,6 +118,7 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}trick/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}trick/"
       +exec fo_trickmode.cfg
       +sv_cheats 1
       +map rj101
@@ -140,6 +144,7 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}staging/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}staging/"
       +exec fo_stagingmode.cfg
       +map 2fort5r
     volumes:
