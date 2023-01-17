@@ -15,7 +15,7 @@ services:
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}"
       +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}"
-      +localinfo backend_address "http://host.docker.internal:3000"
+      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +set sv_public 0
       +set sv_cheats 1
       +exec fo_pubmode.cfg

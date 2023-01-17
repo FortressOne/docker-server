@@ -43,6 +43,7 @@ services:
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}pub/"
       +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}pub/"
+      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_pubmode.cfg
       +map 2fort5r
     volumes:
@@ -68,6 +69,7 @@ services:
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}duel/"
       +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}duel/"
+      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_duelmode.cfg
       +map 1on1r
     volumes:
@@ -94,6 +96,7 @@ services:
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}quad/"
       +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}quad/"
+      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_quadmode.cfg
       +map 2fort5r
     volumes:
@@ -119,6 +122,7 @@ services:
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}trick/"
       +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}trick/"
+      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_trickmode.cfg
       +sv_cheats 1
       +map rj101
@@ -145,6 +149,7 @@ services:
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
       +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}staging/"
       +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}staging/"
+      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_stagingmode.cfg
       +map 2fort5r
     volumes:
