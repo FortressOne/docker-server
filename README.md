@@ -139,12 +139,36 @@ Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/
 - Edit `.env.production` and source
 - Run `eval $(docker-machine env <name>)`
 - Run `docker-machine active` to confirm connection
-- Run `docker-machine active` to confirm connection
 - Run `docker-compose -f production.yaml up -d && docker-compose -f prodction.yaml logs -tf` to start it up.
 - Run `docker exec -it docker-server_updater_1 /updater/sync.sh` to update progs
 - Update cloudflare to point to newly created EC2 instance
+- New regions aren't being added to docker-machine, but generic instructions beow still work.
 
-E.G. I used this for Tokyo:
+
+E.G. I used this for Sydney:
+```
+docker-machine create \
+  --driver amazonec2 \
+  --amazonec2-access-key AKIA5Q3DPGBMILTLCFE2 \
+  --amazonec2-secret-key AatUNhC/VPut45Mnw8OEgNdMEqguDU6AdEnxL9qL \
+  --amazonec2-root-size 30 \
+  --amazonec2-region ap-southeast-2 \
+  --amazonec2-open-port 27500/udp \
+  --amazonec2-open-port 27500 \
+  --amazonec2-open-port 27501/udp \
+  --amazonec2-open-port 27501 \
+  --amazonec2-open-port 27502/udp \
+  --amazonec2-open-port 27502 \
+  --amazonec2-open-port 27503/udp \
+  --amazonec2-open-port 27503 \
+  --amazonec2-open-port 27510/udp \
+  --amazonec2-open-port 27510 \
+  --amazonec2-open-port 30000/udp \
+  --amazonec2-open-port 28000 \
+  sydney
+```
+
+Tokyo:
 ```
 docker-machine create \
   --driver amazonec2 \
