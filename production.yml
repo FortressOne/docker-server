@@ -89,7 +89,6 @@ services:
       -ip ${FO_IP}
       -port 27502
       +set hostname "${FO_HOSTNAME} Quad"
-      +set password "${FO_PASSWORD}"
       +set rcon_password "${FO_RCON_PASSWORD}"
       +set sv_serverip "${FO_IP}:27502"
       +localinfo adminpwd "${FO_ADMINPWD}"
