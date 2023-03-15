@@ -1,0 +1,72 @@
+---
+version: "3.7"
+services:
+  updater:
+    image: updater:latest
+    restart: always
+    environment:
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_ACCESS_KEY_ID
+      - S3_DEMO_URI
+      - S3_STATS_URI
+    volumes:
+      - assets:/updater/map-repo/fortress/
+      - dev-dats:/updater/dats/dev/
+      - dev-demos:/updater/demos/dev/
+      - dev-stats:/updater/stats/dev/
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+  devserver:
+    image: fortressonesv:latest
+    network_mode: host
+    depends_on:
+      - updater
+    stdin_open: true
+    tty: true
+    restart: always
+    command: |
+      -ip ${FO_IP}
+      -port 27500
+      +set hostname "${FO_HOSTNAME} dev"
+      +set rcon_password "${FO_RCON_PASSWORD}"
+      +set sv_serverip "${FO_IP}"
+      +localinfo adminpwd "${FO_ADMINPWD}"
+      +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}dev/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}dev/"
+      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
+      +exec fo_quadmode.cfg
+      +map 2fort5r
+    volumes:
+      - assets:/fortressonesv/fortress/assets/
+      - dev-dats:/fortressonesv/fortress/dats/
+      - dev-demos:/fortressonesv/fortress/demos/
+      - dev-stats:/fortressonesv/fortress/data/
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  qwfwd:
+    image: fortressone/qwfwd:latest
+    network_mode: host
+    stdin_open: true
+    tty: true
+    restart: always
+    command: |
+      30000 0.0.0.0
+      +set hostname "${FO_HOSTNAME} QWfwd"
+volumes:
+  dev-demos:
+  dev-stats:
+  dev-dats:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${FO_DEV_DATS_PATH}
+  assets:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${FO_DEV_ASSETS_PATH}
