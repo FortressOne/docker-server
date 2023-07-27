@@ -1,4 +1,4 @@
-aws_machines=( melbourne sydney california bahrain mumbai saopaulo stockholm ireland tokyo virginia )
+aws_machines=( melbourne sydney california mumbai saopaulo stockholm ireland tokyo virginia london )
 other_machines=( guam dallas )
 
 source_aws_env () {

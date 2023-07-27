@@ -260,7 +260,7 @@ I had to open port 27600 recently. With correctly configured: ~/.aws/config and 
 ```sh
 #!/bin/bash
 
-aws_profiles=( california mumbai saopaulo stockholm ireland sydney tokyo virginia )
+aws_profiles=( california mumbai saopaulo stockholm ireland sydney tokyo virginia london )
 
 for p in "${aws_profiles[@]}"
 do
