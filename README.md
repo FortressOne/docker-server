@@ -63,6 +63,7 @@ different modes and QWfwd proxy.
 | Duel     | 27501 |
 | Quad     | 27502 |
 | Trick    | 27503 |
+| Tourney  | 27504 |
 | Staging  | 27510 |
 | QWfwd    | 30000 |
 
@@ -134,7 +135,7 @@ Install [Docker Machine](https://docs.docker.com/v17.09/machine/install-machine/
 
 - Create an IAM user with admin access
 - Run `docker-machine create` with arguments as in the examples below, or
-  create an EC2 instance and open up ports 27500-27503, 27510 on
+  create an EC2 instance and open up ports 27500-27504, 27510 on
   udp and tcp
 - Edit `.env.production` and source
 - Run `eval $(docker-machine env <name>)`
@@ -161,6 +162,8 @@ docker-machine create \
   --amazonec2-open-port 27502 \
   --amazonec2-open-port 27503/udp \
   --amazonec2-open-port 27503 \
+  --amazonec2-open-port 27504/udp \
+  --amazonec2-open-port 27504 \
   --amazonec2-open-port 27510/udp \
   --amazonec2-open-port 27510 \
   --amazonec2-open-port 30000/udp \
@@ -184,6 +187,8 @@ docker-machine create \
   --amazonec2-open-port 27502 \
   --amazonec2-open-port 27503/udp \
   --amazonec2-open-port 27503 \
+  --amazonec2-open-port 27504/udp \
+  --amazonec2-open-port 27504 \
   --amazonec2-open-port 27510/udp \
   --amazonec2-open-port 27510 \
   --amazonec2-open-port 30000/udp \
@@ -209,6 +214,8 @@ docker-machine create \
   --amazonec2-open-port 27502 \
   --amazonec2-open-port 27503/udp \
   --amazonec2-open-port 27503 \
+  --amazonec2-open-port 27504/udp \
+  --amazonec2-open-port 27504 \
   --amazonec2-open-port 27510/udp \
   --amazonec2-open-port 27510 \
   --amazonec2-open-port 30000/udp \
@@ -255,30 +262,7 @@ docker-machine create \
 
 ### Opening ports on AWS
 
-I had to open port 27600 recently. With correctly configured: ~/.aws/config and ~/.aws/credentials (on Zoho), ports opened with AWS CLI using the following script:
-
-```sh
-#!/bin/bash
-
-aws_profiles=( california mumbai saopaulo stockholm ireland sydney tokyo virginia london )
-
-for p in "${aws_profiles[@]}"
-do
-echo "${p}"
-aws ec2 authorize-security-group-ingress \
-    --profile "${p}" \
-    --group-name docker-machine \
-    --protocol udp \
-    --port 27600 \
-    --cidr 0.0.0.0/0
-aws ec2 authorize-security-group-ingress \
-    --profile "${p}" \
-    --group-name docker-machine \
-    --protocol tcp \
-    --port 27600 \
-    --cidr 0.0.0.0/0
-done
-```
+See `scripts/open-ports`
 
 
 ### Set up environment for docker-machine
