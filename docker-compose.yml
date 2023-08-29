@@ -18,6 +18,7 @@ services:
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +set sv_public 0
       +set sv_cheats 1
+      +set sv_csqcdebug 1
       +exec fo_pubmode.cfg
       +map 2fort5r
     ports:
