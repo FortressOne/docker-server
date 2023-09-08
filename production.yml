@@ -15,11 +15,13 @@ services:
       - staging_dats:/updater/dats/staging/
       - pub-demos:/updater/demos/pub/
       - tourney-demos:/updater/demos/tourney/
+      - scrim-demos:/updater/demos/scrim/
       - duel-demos:/updater/demos/duel/
       - quad-demos:/updater/demos/quad/
       - staging-demos:/updater/demos/staging/
       - pub-stats:/updater/stats/pub/
       - tourney-stats:/updater/stats/tourney/
+      - scrim-stats:/updater/stats/scrim/
       - duel-stats:/updater/stats/duel/
       - quad-stats:/updater/stats/quad/
       - staging-stats:/updater/stats/staging/
@@ -53,33 +55,6 @@ services:
       - master_dats:/fortressonesv/fortress/dats/
       - pub-demos:/fortressonesv/fortress/demos/
       - pub-stats:/fortressonesv/fortress/data/
-  tourneyserver:
-    image: fortressone/fortressonesv:latest
-    network_mode: host
-    depends_on:
-      - updater
-    stdin_open: true
-    tty: true
-    restart: always
-    command: |
-      -ip ${FO_IP}
-      -port 27504
-      +set hostname "${FO_HOSTNAME} Tourney"
-      +set password "${FO_PASSWORD}"
-      +set rcon_password "${FO_RCON_PASSWORD}"
-      +set sv_serverip "${FO_IP}"
-      +localinfo adminpwd "${FO_ADMINPWD}"
-      +localinfo discord_channel_id 1026405619231625257
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}tourney/"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}tourney/"
-      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
-      +exec fo_quadmode.cfg
-      +map 2fort5r
-    volumes:
-      - assets:/fortressonesv/fortress/assets/
-      - master_dats:/fortressonesv/fortress/dats/
-      - tourney-demos:/fortressonesv/fortress/demos/
-      - tourney-stats:/fortressonesv/fortress/data/
   duelserver:
     image: fortressone/fortressonesv:latest
     network_mode: host
@@ -159,6 +134,60 @@ services:
       - master_dats:/fortressonesv/fortress/dats/
       - pub-demos:/fortressonesv/fortress/demos/
       - pub-stats:/fortressonesv/fortress/data/
+  tourneyserver:
+    image: fortressone/fortressonesv:latest
+    network_mode: host
+    depends_on:
+      - updater
+    stdin_open: true
+    tty: true
+    restart: always
+    command: |
+      -ip ${FO_IP}
+      -port 27504
+      +set hostname "${FO_HOSTNAME} Tourney"
+      +set password "${FO_PASSWORD}"
+      +set rcon_password "${FO_RCON_PASSWORD}"
+      +set sv_serverip "${FO_IP}:27504"
+      +localinfo adminpwd "${FO_ADMINPWD}"
+      +localinfo discord_channel_id 1026405619231625257
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}tourney/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}tourney/"
+      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
+      +exec fo_quadmode.cfg
+      +map 2fort5r
+    volumes:
+      - assets:/fortressonesv/fortress/assets/
+      - master_dats:/fortressonesv/fortress/dats/
+      - tourney-demos:/fortressonesv/fortress/demos/
+      - tourney-stats:/fortressonesv/fortress/data/
+  scrimserver:
+    image: fortressone/fortressonesv:latest
+    network_mode: host
+    depends_on:
+      - updater
+    stdin_open: true
+    tty: true
+    restart: always
+    command: |
+      -ip ${FO_IP}
+      -port 27505
+      +set hostname "${FO_HOSTNAME} Scrim"
+      +set password "${FO_PASSWORD}"
+      +set rcon_password "${FO_RCON_PASSWORD}"
+      +set sv_serverip "${FO_IP}:27505"
+      +localinfo adminpwd "${FO_ADMINPWD}"
+      +localinfo discord_channel_id 1147341454851719219
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}scrim/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}scrim/"
+      +localinfo backend_address "${FO_BACKEND_ADDRESS}"
+      +exec fo_quadmode.cfg
+      +map 2fort5r
+    volumes:
+      - assets:/fortressonesv/fortress/assets/
+      - staging_dats:/fortressonesv/fortress/dats/
+      - scrim-demos:/fortressonesv/fortress/demos/
+      - scrim-stats:/fortressonesv/fortress/data/
   stagingserver:
     image: fortressone/fortressonesv:latest
     network_mode: host
@@ -196,14 +225,16 @@ services:
       +set hostname "${FO_HOSTNAME} QWfwd"
 volumes:
   pub-demos:
-  tourney-demos:
   duel-demos:
   quad-demos:
+  tourney-demos:
+  scrim-demos:
   staging-demos:
   pub-stats:
-  tourney-stats:
   duel-stats:
   quad-stats:
+  tourney-stats:
+  scrim-stats:
   staging-stats:
   assets:
   master_dats:

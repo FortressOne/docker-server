@@ -14,12 +14,12 @@ do
       --profile "${p}" \
       --group-name docker-machine \
       --protocol udp \
-      --port 27504 \
+      --port 27505 \
       --cidr 0.0.0.0/0
   aws ec2 authorize-security-group-ingress \
       --profile "${p}" \
       --group-name docker-machine \
       --protocol tcp \
-      --port 27504 \
+      --port 27505 \
       --cidr 0.0.0.0/0
 done
