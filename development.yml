@@ -9,6 +9,8 @@ services:
       - AWS_ACCESS_KEY_ID
       - S3_DEMO_URI
       - S3_STATS_URI
+      - FO_REGION
+      - FO_STATS_FILES_ADDRESS
     volumes:
       - assets:/updater/map-repo/fortress/
       - dev-dats:/updater/dats/dev/
@@ -34,8 +36,8 @@ services:
       +set sv_serverip "${FO_IP}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}dev/"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}dev/"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}/${FO_REGION}/dev/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}/${FO_REGION}/dev/"
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_quadmode.cfg
       +map 2fort5r

@@ -13,8 +13,8 @@ services:
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo allowpracspawns 1
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}/${FO_REGION}"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}/${FO_REGION}"
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +set sv_public 0
       +set sv_cheats 1

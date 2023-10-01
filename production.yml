@@ -9,6 +9,8 @@ services:
       - AWS_ACCESS_KEY_ID
       - S3_DEMO_URI
       - S3_STATS_URI
+      - FO_REGION
+      - FO_STATS_FILES_ADDRESS
     volumes:
       - assets:/updater/map-repo/fortress/
       - master_dats:/updater/dats/master/
@@ -45,8 +47,8 @@ services:
       +set sv_serverip "${FO_IP}"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}pub/"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}pub/"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}/${FO_REGION}/pub/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}/${FO_REGION}/pub/"
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_pubmode.cfg
       +map 2fort5r
@@ -71,8 +73,8 @@ services:
       +set sv_serverip "${FO_IP}:27501"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}duel/"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}duel/"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}/${FO_REGION}/duel/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}/${FO_REGION}/duel/"
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_duelmode.cfg
       +map 1on1r
@@ -97,8 +99,8 @@ services:
       +set sv_serverip "${FO_IP}:27502"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}quad/"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}quad/"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}/${FO_REGION}/quad/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}/${FO_REGION}/quad/"
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_quadmode.cfg
       +map 2fort5r
@@ -123,8 +125,8 @@ services:
       +set sv_serverip "${FO_IP}:27503"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}trick/"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}trick/"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}/${FO_REGION}/trick/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}/${FO_REGION}/trick/"
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_trickmode.cfg
       +sv_cheats 1
@@ -151,8 +153,8 @@ services:
       +set sv_serverip "${FO_IP}:27504"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id 1026405619231625257
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}tourney/"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}tourney/"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}/${FO_REGION}/tourney/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}/${FO_REGION}/tourney/"
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_quadmode.cfg
       +map 2fort5r
@@ -178,8 +180,8 @@ services:
       +set sv_serverip "${FO_IP}:27505"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id 1147341454851719219
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}scrim/"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}scrim/"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}/${FO_REGION}/scrim/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}/${FO_REGION}/scrim/"
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_quadmode.cfg
       +map 2fort5r
@@ -204,8 +206,8 @@ services:
       +set sv_serverip "${FO_IP}:27510"
       +localinfo adminpwd "${FO_ADMINPWD}"
       +localinfo discord_channel_id "${FO_DISCORD_CHANNEL_ID}"
-      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}staging/"
-      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}staging/"
+      +localinfo demo_files_address "${FO_DEMO_FILES_ADDRESS}/${FO_REGION}/staging/"
+      +localinfo stats_files_address "${FO_STATS_FILES_ADDRESS}/${FO_REGION}/staging/"
       +localinfo backend_address "${FO_BACKEND_ADDRESS}"
       +exec fo_stagingmode.cfg
       +map 2fort5r
